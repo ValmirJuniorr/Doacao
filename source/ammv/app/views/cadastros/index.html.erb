@@ -1,13 +1,35 @@
-<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="true" aria-label="Toggle navigation">
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Bootstrap core CSS -->
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <!-- Compiled and minified CSS -->
+ 
+            
+<title>AMMV</title>
+
+</head>
+<body>
+   <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <a class="navbar-brand" href="#">AMMV</a>
+  <a class="navbar-brand" href="#"><%= link_to 'Navbar', cadastros_path %></a>
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-          Gerar Relatórios
+        <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Relatórios
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item" href="#">Semanal</a>
@@ -15,62 +37,65 @@
           <a class="dropdown-item" href="#">Mensal</a>
         </div>
       </li>
+      <li>
+          <%= link_to 'Sair', destroy_user_session_path, method: :delete %>      
+      </li>
     </ul>
   </div>
 </nav>
 
-<p id="notice"><%= notice %></p>
+    <p id="notice"><%= notice %></p>
 
 
 <br>
 <br>
 <br>
 
+<div class="row">
+<table class="table-striped" align="center">
+    <h1 align="center">Cadastros</h1>
+      <center>
+          <%= form_tag(cadastros_path, method: :get) do %>
 
-<table border="1" align="center">
-<h1 align="center">Cadastros</h1>
-  <center>
-      <%= form_tag(cadastros_path, method: :get) do %>
+              <%= text_field_tag 'search', nil, placeholder: 'Digite o Código do Cliente' %>
+              <%= submit_tag "Buscar"%>
+          <% end %>
+      </center>
+      <br>
+        <tr>
+          <th width="150">Id cliente coelce</th>
+          
+          <th width="150">Codigo ocorrencia</th>
+          
+          <th width="100">Valor</th>
+          <th width="100">Parcelas</th>      
+          
+        </tr>
 
-          <%= text_field_tag 'search', nil, placeholder: 'Digite o Código do Cliente' %>
-          <%= submit_tag "Buscar"%>
-      <% end %>
-  </center>
-  <br>
-  <thead>
-    <tr>
-      <th>Id cliente coelce</th>
-      
-      <th>Codigo ocorrencia</th>
-      
-      <th>Valor</th>
-      <th>Parcelas</th>
-      
-      
      
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+        <% @cadastros.each do |cadastro| %>
+          <tr>
+            <td><%= cadastro.id_cliente_coelce %></td>
+            
+            <td><%= cadastro.codigo_ocorrencia %></td>
+            
+            <td><%= cadastro.valor %></td>
+            <td><%= cadastro.parcelas %></td>
+            
+           
+            <td><button type="button" class="btn btn-info btn-sm"><%= link_to 'Ver', cadastro %></td></button>
+            <td><button type="button" class="btn btn-success btn-sm"><%= link_to 'Editar', edit_cadastro_path(cadastro) %></td></button>
+            <td><button type="button" class="btn btn-warning btn-sm"><%= link_to 'Excluir', cadastro, method: :delete, data: { confirm: 'Tem certeza que deseja excluir o registro?' } %></td></button>
+          </tr>
+        <% end %>
+      
+    </table>
+</div>
+    <br>
+  <center>
+    <button type="button" class="btn btn-outline-primary"><%=link_to 'Cadastrar' , new_cadastro_path %></button>
 
-  <tbody>
-    <% @cadastros.each do |cadastro| %>
-      <tr>
-        <td><%= cadastro.id_cliente_coelce %></td>
-        
-        <td><%= cadastro.codigo_ocorrencia %></td>
-        
-        <td><%= cadastro.valor %></td>
-        <td><%= cadastro.parcelas %></td>
-        
-       
-        <td><%= link_to 'Show', cadastro %></td>
-        <td><%= link_to 'Edit', edit_cadastro_path(cadastro) %></td>
-        <td><%= link_to 'Destroy', cadastro, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  </center>
 
-<br>
-
-<%= link_to 'New Cadastro', new_cadastro_path %>
+  </body>
+</html>
