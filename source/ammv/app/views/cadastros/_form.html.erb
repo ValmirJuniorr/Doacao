@@ -1,0 +1,67 @@
+<%= form_for(cadastro) do |f| %>
+  <% if cadastro.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(cadastro.errors.count, "error") %> prohibited this cadastro from being saved:</h2>
+
+      <ul>
+      <% cadastro.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :id_cliente_coelce %>
+    <%= f.text_field :id_cliente_coelce %>
+  </div>
+
+  <div class="field">
+    <%= f.label :digito_verificador_cliente_coelce %>
+    <%= f.text_field :digito_verificador_cliente_coelce %>
+  </div>
+
+  <div class="field">
+    <%= f.label :codigo_ocorrencia %>
+    <%= f.text_field :codigo_ocorrencia %>
+  </div>
+
+  <div class="field">
+    <%= f.label :data_ocorrencia %>
+    <%= f.date_select :data_ocorrencia %>
+  </div>
+
+  <div class="field">
+    <%= f.label :valor %>
+    <%= f.text_field :valor %>
+  </div>
+
+  <div class="field">
+    <%= f.label :parcelas %>
+    <%= f.text_field :parcelas %>
+  </div>
+
+  <div class="field">
+    <%= f.label :id_cliente_parceira %>
+    <%= f.text_field :id_cliente_parceira %>
+  </div>
+
+  <div class="field">
+    <%= f.label :codigo_produto %>
+    <%= f.text_field :codigo_produto %>
+  </div>
+
+  <div class="field">
+    <%= f.label :codigo_empresa_parceira %>
+    <%= f.text_field :codigo_empresa_parceira %>
+  </div>
+
+  <div class="field">
+    <%= f.label :livre %>
+    <%= f.text_area :livre %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

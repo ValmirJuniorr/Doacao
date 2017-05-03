@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Id cliente coelce:</strong>
+  <%= @cadastro.id_cliente_coelce %>
+</p>
+
+<p>
+  <strong>Digito verificador cliente coelce:</strong>
+  <%= @cadastro.digito_verificador_cliente_coelce %>
+</p>
+
+<p>
+  <strong>Codigo ocorrencia:</strong>
+  <%= @cadastro.codigo_ocorrencia %>
+</p>
+
+<p>
+  <strong>Data ocorrencia:</strong>
+  <%= @cadastro.data_ocorrencia %>
+</p>
+
+<p>
+  <strong>Valor:</strong>
+  <%= @cadastro.valor %>
+</p>
+
+<p>
+  <strong>Parcelas:</strong>
+  <%= @cadastro.parcelas %>
+</p>
+
+<p>
+  <strong>Id cliente parceira:</strong>
+  <%= @cadastro.id_cliente_parceira %>
+</p>
+
+<p>
+  <strong>Codigo produto:</strong>
+  <%= @cadastro.codigo_produto %>
+</p>
+
+<p>
+  <strong>Codigo empresa parceira:</strong>
+  <%= @cadastro.codigo_empresa_parceira %>
+</p>
+
+<p>
+  <strong>Livre:</strong>
+  <%= @cadastro.livre %>
+</p>
+
+<%= link_to 'Edit', edit_cadastro_path(@cadastro) %> |
+<%= link_to 'Back', cadastros_path %>

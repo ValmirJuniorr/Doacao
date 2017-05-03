@@ -1,0 +1,76 @@
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="true" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="#">AMMV</a>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          Gerar Relatórios
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="#">Semanal</a>
+          <a class="dropdown-item" href="#">Quinzenal</a>
+          <a class="dropdown-item" href="#">Mensal</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<p id="notice"><%= notice %></p>
+
+
+<br>
+<br>
+<br>
+
+
+<table border="1" align="center">
+<h1 align="center">Cadastros</h1>
+  <center>
+      <%= form_tag(cadastros_path, method: :get) do %>
+
+          <%= text_field_tag 'search', nil, placeholder: 'Digite o Código do Cliente' %>
+          <%= submit_tag "Buscar"%>
+      <% end %>
+  </center>
+  <br>
+  <thead>
+    <tr>
+      <th>Id cliente coelce</th>
+      
+      <th>Codigo ocorrencia</th>
+      
+      <th>Valor</th>
+      <th>Parcelas</th>
+      
+      
+     
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cadastros.each do |cadastro| %>
+      <tr>
+        <td><%= cadastro.id_cliente_coelce %></td>
+        
+        <td><%= cadastro.codigo_ocorrencia %></td>
+        
+        <td><%= cadastro.valor %></td>
+        <td><%= cadastro.parcelas %></td>
+        
+       
+        <td><%= link_to 'Show', cadastro %></td>
+        <td><%= link_to 'Edit', edit_cadastro_path(cadastro) %></td>
+        <td><%= link_to 'Destroy', cadastro, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Cadastro', new_cadastro_path %>
