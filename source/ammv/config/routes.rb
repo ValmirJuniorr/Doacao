@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'control_users/index'
+
   devise_for :users
   resources :cadastros
   root 'cadastros#index'
