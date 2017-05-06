@@ -10,10 +10,18 @@
       </ul>
     </div>
   <% end %>
+<div class="container-fluid" align="center">
+  
 
   <div class="field">
-    <%= f.label :id_cliente_coelce %>
-    <%= f.text_field :id_cliente_coelce %>
+    <tr>
+      <td>
+          <%= f.label :id_cliente_coelce %>
+      </td>
+      <td >
+          <%= f.text_field :id_cliente_coelce %>
+      </td>
+    </tr>
   </div>
 
   <div class="field">
@@ -60,8 +68,9 @@
     <%= f.label :livre %>
     <%= f.text_area :livre %>
   </div>
-
+  <br>
   <div class="actions">
     <%= f.submit %>
   </div>
+</div>
 <% end %>
