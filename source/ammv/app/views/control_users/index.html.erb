@@ -12,7 +12,6 @@
           <td align="center"><%= user.email %></td>          
           <td align="center">
             <div class="btn-group btn-group-xs">
-              <button type="button" ><%= link_to 'Ver', user %></button>
               <button type="button" ><%= link_to 'Editar', edit_user_path(user) %></button>
               <button type="button" ><%= link_to 'Excluir', user, method: :delete, data: { confirm: 'Tem certeza que deseja excluir o registro?' } %></button>
             </div>
