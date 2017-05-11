@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Ammv</title>
-    <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag    'default', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'default', 'data-turbolinks-track': 'reload' %>
+<head>
+  <meta charset="utf-8">
+  <title>AMMV</title>
+  <%=stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%=javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%=csrf_meta_tags %>
+</head>
 
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>    
-  </head>
-
-  <body>
-    <%= yield %>
-  </body>
+<body>
+  <%= yield %>
+  <div>
+    <footer class="footer">
+      <div class="container"> 
+        <div class="column-is-4"><span >Copyright © 2017 NExTI</span></div>
+      </div>
+    </footer>
+  </div>
+</body>
 </html>

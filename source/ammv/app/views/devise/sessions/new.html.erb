@@ -1,19 +1,36 @@
-<h2>SISTEMA AMMV</h2>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+<div class="container cimg">
+  <div class="text-center" style="padding:50px 0">
+    <div class="logo">Associação Maria Mãe Vida</div>
+    <!-- Main Form -->
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="login-form-1 box-login">
+      <form id="login-form" class="text-left">
+        <div class="login-form-main-message"></div>
+        <div class="main-login-form">
+          <div class="login-group">
+            <div class="form-group">
+              <%= f.label :email %><br />
+              <%= f.email_field :email, autofocus: true, class: "form-control" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :password %><br />
+              <%= f.password_field :password, autocomplete: "off",class: "form-control" %>
+            </div>
+            <div class="form-group login-group-checkbox">
+              <input type="checkbox" id="lg_remember" name="lg_remember">
+              <label for="lg_remember">Lembrar</label>
+            </div>
+          </div>
+          </p>
+          <%= f.submit "Log in", class: "btn btn-lg btn-primary" %>
+          <% end %>
+        </div>
+      </form>
+    </div>
+    <!-- end:Main Form -->
   </div>
-
-  <div class="field">
-    Senha<br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Entrar" %>
-  </div>
-<% end %>
+</div>
+</div>
 
 
