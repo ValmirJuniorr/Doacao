@@ -25,22 +25,29 @@
         <th width="150"><p>Id cliente coelce</p></th>            
         <th width="150"><p>Codigo ocorrencia</th>            
         <th width="150"><p>Valor</th>
-        <th width="150"><p>Parcelas</th>                  
+        <th width="150"><p>Parcelas</th>
+        <th width="150"><p>Autor</th>
       </tr>       
+     
         <% @cadastros.each do |cadastro| %>
         <tr height="25">
           <td align=center><%= cadastro.id_cliente_coelce %></td>              
           <td align="center"><%= cadastro.codigo_ocorrencia %></td>              
           <td align="center"><%= cadastro.valor %></td>
           <td align="center"><%= cadastro.parcelas %></td>  
+          <td align="center"><span class="label label-warning"><%= cadastro.user.username %></span></td> 
           <td align="center">
+
             <div>
+             <% if current_user %>
               <%= link_to 'Ver', cadastro,class: 'btn btn-xs btn-primary' %>
-              <%= link_to 'Editar', edit_cadastro_path(cadastro), class: 'btn btn-xs btn-info' %>              
+              <%= link_to 'Editar', edit_cadastro_path(cadastro), class: 'btn btn-xs btn-info'%>              
+             <% end %>
             </div>
           </td>
         </tr>
           <% end %> 
+      
     </table>
   </div>
   <center>

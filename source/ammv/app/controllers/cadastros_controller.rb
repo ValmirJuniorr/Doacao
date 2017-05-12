@@ -1,14 +1,14 @@
 class CadastrosController < ApplicationController
   before_action :authenticate_user!
   before_action :set_cadastro, only: [:show, :edit, :update, :destroy]
-
+   
   # GET /cadastros
   # GET /cadastros.json
   def index
     if params[:search]
       @cadastros = Cadastro.where("id_cliente_coelce like ?", "%#{params[:search]}")
     else
-      @cadastros = Cadastro.all
+      @cadastros = Cadastro.joins(:user).all.order("created_at DESC")
     end
   end
 
@@ -19,7 +19,7 @@ class CadastrosController < ApplicationController
 
   # GET /cadastros/new
   def new
-    @cadastro = Cadastro.new
+    @cadastro = current_user.cadastros.build
   end
   
 
@@ -30,7 +30,7 @@ class CadastrosController < ApplicationController
   # POST /cadastros
   # POST /cadastros.json
   def create
-    @cadastro = Cadastro.new(cadastro_params)
+    @cadastro = current_user.cadastros.build(cadastro_params)
 
     respond_to do |format|
       if @cadastro.save

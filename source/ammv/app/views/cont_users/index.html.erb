@@ -5,18 +5,20 @@
     <br>
     <table class="table-striped">
       <tr  height="20">
+      	<th width="150"><p>User ID</p></th>
         <th width="150"><p>E-Mail</p></th>
         <th width="150"><p>Usuário</p></th>
         <th width="150"><p>Tipo de Usuário</p></th>                              
       </tr>       
         <% @users.each do |user| %>
         <tr height="25">              
+          <td align="center"><%= user.id %></td>   	
           <td align="center"><%= user.email %></td>   
           <td align="center"><%= user.username %></td>
           <td align="center"><%= user.role %></td>       
           <td align="center">
             <div class="btn-group btn-group-xs">
-                  <%= link_to 'Adicionar Usuario', edit_user_registration_path %>
+                  <%= link_to 'Adicionar Usuario', savenew_path %>
 
             </div>
           </td>
