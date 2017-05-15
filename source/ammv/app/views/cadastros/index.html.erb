@@ -3,7 +3,7 @@
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container">
-    <a class="navbar-brand">  <%= link_to (image_tag("icon.png")), root_path, class: 'navbar-brand' %></a>
+      <a class="navbar-brand">  <%= link_to (image_tag("icon.png")), root_path, class: 'navbar-brand' %></a>
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -25,7 +25,26 @@
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
-  
+
+  <!-- Teste -->
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="page-header">
+          <h1 align="center">Cadastros</h1>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-4 col-lg-offset-4" align="right">
+        <input type="search" id="search" value="" class="form-control" placeholder="Buscador">
+      </p>
+    </div>
   </div>
   <div class="row">
     <div class="col-lg-12">
@@ -36,25 +55,34 @@
             <th>Codigo Ocorrencia</th>
             <th>Valor</th>
             <th>Parcelas</th>
+             <%if policy(@cadastros).index? %>
+            <th>Autor</th>
+            <% end %>
           </tr>
         </thead>
         <tbody>
           <% @cadastros.each do |cadastro| %>
           <tr>
-            <td><%= cadastro.id_cliente_coelce %></td>
-            <td><%= cadastro.codigo_ocorrencia %></td>                  
-            <td><%= cadastro.valor %></td>
-            <td><%= cadastro.parcelas %></td>
-            <td>
-              <%= link_to 'Ver', cadastro,class: 'ls-btn-primary' %>
-              <%= link_to 'Editar', edit_cadastro_path(cadastro),class: 'ls-btn ls-ico-cog'%>
-            </td>
-          </tr>
+            <%if current_user.id == cadastro.user_id || policy(@cadastros).index? %>
+              <td><%= cadastro.id_cliente_coelce %></td>
+              <td><%= cadastro.codigo_ocorrencia %></td>                  
+              <td><%= cadastro.valor %></td>
+              <td><%= cadastro.parcelas %></td>
+              <%if policy(@cadastros).index? %>
+                <td><%= cadastro.user.username %></td>
+              <% end %>
+              <td>
+                  <%= link_to 'Ver', cadastro,class: 'ls-btn-primary' %>
+                  <%= link_to 'Editar', edit_cadastro_path(cadastro),class: 'ls-btn ls-ico-cog'%>    
+              </td>
+          </td>
+        </tr>
           <% end %>
-        </tbody>
-      </table>
-      <hr>
-    </div>
+        <% end %>
+      </tbody>
+    </table>
+    <hr>
   </div>
+</div>
 
-  <script src="//rawgithub.com/stidges/jquery-searchable/master/dist/jquery.searchable-1.0.0.min.js"></script>
+<script src="//rawgithub.com/stidges/jquery-searchable/master/dist/jquery.searchable-1.0.0.min.js"></script>
