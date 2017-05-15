@@ -20,7 +20,7 @@
           <li class="active"> <%=link_to 'Inicio', root_path%></li>
           <li> <%=link_to 'Cadastrar' , new_cadastro_path%> </li>
           <% if policy(@cadastros).index? %>
-            <li> <%=link_to 'Relatórios'%> </li>
+            <li> <%=link_to 'Relatórios', relatorios_index_path%> </li>
           <% end %>
           <li><%=link_to "Sair", destroy_user_session_path, :method => :delete%></li>
         </ul>
