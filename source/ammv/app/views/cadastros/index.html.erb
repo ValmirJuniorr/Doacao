@@ -3,7 +3,7 @@
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container">
-      <a class="navbar-brand">  <%= link_to (image_tag("icon.png")), root_path, class: 'navbar-brand' %></a>
+      <a class="navbar-brand">  <%= link_to (image_tag("icon2.png")), root_path, class: 'navbar-brand' %></a>
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -19,7 +19,9 @@
         <ul class="nav navbar-nav navbar-right">
           <li class="active"> <%=link_to 'Inicio', root_path%></li>
           <li> <%=link_to 'Cadastrar' , new_cadastro_path%> </li>
-          <li> <%=link_to 'Relatórios'%> </li>
+          <% if policy(@cadastros).index? %>
+            <li> <%=link_to 'Relatórios'%> </li>
+          <% end %>
           <li><%=link_to "Sair", destroy_user_session_path, :method => :delete%></li>
         </ul>
       </div><!-- /.navbar-collapse -->
