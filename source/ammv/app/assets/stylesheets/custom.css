@@ -1,51 +1,9 @@
-#custom-bootstrap-menu.navbar-default .navbar-brand {
-    color: rgba(112, 103, 103, 1);
-}
-#custom-bootstrap-menu.navbar-default {
-    font-size: 14px;
-    background-color: rgba(204, 200, 200, 1);
-    background: -webkit-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(204, 200, 200, 1) 100%);
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(204, 200, 200, 1) 100%);
-    border-width: 2px;
-    border-radius: 6px;
-}
-#custom-bootstrap-menu.navbar-default .navbar-nav>li>a {
-    color: rgba(119, 119, 119, 1);
-    background-color: rgba(255, 247, 247, 1);
-}
-#custom-bootstrap-menu.navbar-default .navbar-nav>li>a:hover,
-#custom-bootstrap-menu.navbar-default .navbar-nav>li>a:focus {
-    color: rgba(51, 51, 51, 1);
-    background-color: rgba(214, 214, 214, 1);
-}
-#custom-bootstrap-menu.navbar-default .navbar-nav>.active>a,
-#custom-bootstrap-menu.navbar-default .navbar-nav>.active>a:hover,
-#custom-bootstrap-menu.navbar-default .navbar-nav>.active>a:focus {
-    color: rgba(85, 85, 85, 1);
-    background-color: rgba(194, 190, 190, 1);
-}
-#custom-bootstrap-menu.navbar-default .navbar-toggle {
-    border-color: #c2bebe;
-}
-#custom-bootstrap-menu.navbar-default .navbar-toggle:hover,
-#custom-bootstrap-menu.navbar-default .navbar-toggle:focus {
-    background-color: #c2bebe;
-}
-#custom-bootstrap-menu.navbar-default .navbar-toggle .icon-bar {
-    background-color: #c2bebe;
-}
-#custom-bootstrap-menu.navbar-default .navbar-toggle:hover .icon-bar,
-#custom-bootstrap-menu.navbar-default .navbar-toggle:focus .icon-bar {
-    background-color: #ccc8c8;
-}
-
 .search-form .form-group {
   float: right !important;
   transition: all 0.35s, border-radius 0s;
   width: 32px;
   height: 32px;
   background-color: #fff;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
   border-radius: 25px;
   border: 1px solid #ccc;
 }
@@ -53,7 +11,6 @@
   padding-right: 20px;
   border: 0 none;
   background: transparent;
-  box-shadow: none;
   display:block;
 }
 .search-form .form-group input.form-control::-webkit-input-placeholder {
@@ -89,7 +46,25 @@
   left: initial;
   font-size: 14px;
 }
-.row-padding {
-    margin-top: 25px;
-    margin-bottom: 25px;
-}
+
+.top_bar { min-height:40px; /* 
+background: #30bed6; /* Old browsers */
+background: -moz-linear-gradient(left, #30bed6 0%, #38cac9 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(left, #30bed6 0%,#38cac9 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to right, #30bed6 0%,#38cac9 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#30bed6', endColorstr='#38cac9',GradientType=1 ); /* IE6-9 */}
+
+.social { list-style-type:none; margin-bottom:0px; float:left; padding:0px; margin-left:0px;}
+.social li { float:left;}
+.social li a { padding:0 10px; font-size:13px; line-height:40px; color:#FFF;}
+
+.rightc { list-style-type:none; margin-bottom:0px; float:right;}
+.rightc li { margin:0px 10px; font-size:13px; float:left; line-height:40px; color:#FFF;}
+.rightc li a {   color:#FFF; }
+
+.navbar-brand img { margin-top:0px; margin-left:0px;}
+.navbar-brand {padding:0px;}
+
+.header_image { margin-top:-70px; float:left;}
+.nav.navbar-nav.navbar-right span {font-family: 'Open Sans', sans-serif; font-style:italic; font-weight:300; color:#1b6977;}
+.navbar-right li a {font-family: 'Open Sans', sans-serif; font-size:16px; color:#1b6977 !important;}

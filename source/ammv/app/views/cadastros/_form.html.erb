@@ -1,76 +1,95 @@
 <%= form_for(cadastro) do |f| %>
-  <% if cadastro.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(cadastro.errors.count, "error") %> prohibited this cadastro from being saved:</h2>
+<% if cadastro.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(cadastro.errors.count, "error") %> prohibited this cadastro from being saved:</h2>
 
-      <ul>
-      <% cadastro.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-<div class="container-fluid" align="center">
-  
-
-  <div class="field">
-    <tr>
-      <td>
-          <%= f.label :id_cliente_coelce %>
-      </td>
-      <td >
-          <%= f.text_field :id_cliente_coelce %>
-      </td>
-    </tr>
-  </div>
-
-  <div class="field">
-    <%= f.label :digito_verificador_cliente_coelce %>
-    <%= f.text_field :digito_verificador_cliente_coelce %>
-  </div>
-
-  <div class="field">
-    <%= f.label :codigo_ocorrencia %>
-    <%= f.text_field :codigo_ocorrencia %>
-  </div>
-
-  <div class="field">
-    <%= f.label :data_ocorrencia %>
-    <%= f.date_select :data_ocorrencia %>
-  </div>
-
-  <div class="field">
-    <%= f.label :valor %>
-    <%= f.text_field :valor %>
-  </div>
-
-  <div class="field">
-    <%= f.label :parcelas %>
-    <%= f.text_field :parcelas %>
-  </div>
-
-  <div class="field">
-    <%= f.label :id_cliente_parceira %>
-    <%= f.text_field :id_cliente_parceira %>
-  </div>
-
-  <div class="field">
-    <%= f.label :codigo_produto %>
-    <%= f.text_field :codigo_produto %>
-  </div>
-
-  <div class="field">
-    <%= f.label :codigo_empresa_parceira %>
-    <%= f.text_field :codigo_empresa_parceira %>
-  </div>
-
-  <div class="field">
-    <%= f.label :livre %>
-    <%= f.text_area :livre %>
-  </div>
-  <br>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <ul>
+    <% cadastro.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
 </div>
 <% end %>
+
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+      </button>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li> <%=link_to 'Inicio', root_path%></li>
+        <li class="active"> <%=link_to 'Cadastrar' , new_cadastro_path%> </li>
+        <li> <%=link_to 'Relatórios'%> </li>
+        <li><%=link_to "Sair", destroy_user_session_path, :method => :delete%></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+<form>
+  <br>
+  <div class="ls-form row">
+    <div class="page-header">
+          <h2 align="center"> Cadastramento </h2>
+    </div>
+  <br>
+    <fieldset> 
+      <label class="ls-label col-md-3">
+        <b class="ls-label-text">ID</b>
+        <p class="ls-label-info">Digite o ID do cliente coelce</p>
+        <%= f.number_field :id_cliente_coelce%>
+      </label>
+      <label class="ls-label col-md-4">
+        <b class="ls-label-text">Digito Verificador</b>
+        <p class="ls-label-info">Digite o dígito verificador do Cliente Coelce</p>
+        <%= f.number_field :digito_verificador_cliente_coelce%>
+      </label>
+      <label class="ls-label col-md-4">
+        <b class="ls-label-text">Código Ocorrência</b>
+        <p class="ls-label-info">Digite o código de ocorrência</p>
+        <%= f.number_field :codigo_ocorrencia %>
+      </label>
+      <label class="ls-label col-md-3">
+        <b class="ls-label-text">Data Ocorrência</b>
+        <p class="ls-label-info">Insira a data de Ocorrência</p>
+        <br>
+        <%= f.date_select :data_ocorrencia, :order => [:day, :month, :year], :use_month_names=>["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]%>
+      </label>
+      <label class="ls-label col-md-4">
+        <b class="ls-label-text">Valor</b>
+        <p class="ls-label-info">Dígite o Valor</p>
+        <%= f.number_field :valor, :step => 0.01%>
+      </label>
+      <label class="ls-label col-md-3 ">
+        <b class="ls-label-text">Parcelas</b>
+        <p class="ls-label-info">Dígite o número de Parcelas</p>
+        <%= f.number_field :parcelas%>
+      </label>
+      <label class="ls-label col-md-3">
+        <b class="ls-label-text">Id Cliente Parceiro</b>
+        <p class="ls-label-info">Dígite o Id do Cliente Parceiro</p>
+        <%= f.number_field :id_cliente_parceira%>
+      </label>
+      <label class="ls-label col-md-4">
+        <b class="ls-label-text">Código Produto</b>
+        <p class="ls-label-info">Insira o Código Produto</p>
+        <%= f.number_field :codigo_produto%>
+      </label>
+      <label class="ls-label col-md-4">
+        <b class="ls-label-text">Código Empresa Parceira</b>
+        <p class="ls-label-info">Dígite o código da empresa parceira</p>
+        <%= f.number_field :codigo_empresa_parceira%>
+      </label>
+      <div class="footer page-header" align="center">
+          <br>
+          <%= f.submit "Cadastrar", class:"btn btn-primary"%>
+      </div>
+    </fieldset>
+  </form>  
+
+  <% end %>

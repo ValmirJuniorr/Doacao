@@ -21,7 +21,7 @@ Last change	: 2015/03/27
 /*=== 1. General Structure ===*/
 html,
 body {
-  background: #efefef;
+  height: 100%;
   padding: 10px;
   font-family: 'Varela Round';
 }
@@ -304,3 +304,11 @@ label:hover:before {
     font-size: 25px;
     color: gray;
 }
+
+.footer {
+    clear: both;
+    position: relative;
+    padding: 3rem;
+    z-index: 10;
+    height: 3em;
+  }
