@@ -20,7 +20,7 @@
           <li class="active"> <%=link_to 'Inicio', root_path%></li>
           <li> <%=link_to 'Cadastrar' , new_cadastro_path%> </li>
           <% if policy(@cadastros).index? %>
-            <li> <%=link_to 'Relatórios', relatorios_index_path%> </li>
+          <li> <%=link_to 'Relatórios', relatorios_index_path%> </li>
           <% end %>
           <li><%=link_to "Sair", destroy_user_session_path, :method => :delete%></li>
         </ul>
@@ -57,7 +57,7 @@
             <th>Codigo Ocorrencia</th>
             <th>Valor</th>
             <th>Parcelas</th>
-             <%if policy(@cadastros).index? %>
+            <%if policy(@cadastros).index? %>
             <th>Autor</th>
             <% end %>
           </tr>
@@ -66,20 +66,20 @@
           <% @cadastros.each do |cadastro| %>
           <tr>
             <%if current_user.id == cadastro.user_id || policy(@cadastros).index? %>
-              <td><%= cadastro.id_cliente_coelce %></td>
-              <td><%= cadastro.codigo_ocorrencia %></td>                  
-              <td><%= cadastro.valor %></td>
-              <td><%= cadastro.parcelas %></td>
-              <%if policy(@cadastros).index? %>
-                <td><%= cadastro.user.username %></td>
-              <% end %>
-              <td>
-                  <%= link_to 'Ver', cadastro,class: 'ls-btn-primary' %>
-                  <%= link_to 'Editar', edit_cadastro_path(cadastro),class: 'ls-btn ls-ico-cog'%>    
-              </td>
+            <td><%= cadastro.id_cliente_coelce %></td>
+            <td><%= cadastro.codigo_ocorrencia %></td>                  
+            <td><%= cadastro.valor %></td>
+            <td><%= cadastro.parcelas %></td>
+            <%if policy(@cadastros).index? %>
+            <td><%= cadastro.user.username %></td>
+            <% end %>
+            <td align="center">
+              <%= link_to 'Ver', cadastro,class: 'ls-btn-primary ls-btn-xs' %>
+              <%= link_to 'Editar', edit_cadastro_path(cadastro),class: 'ls-btn ls-ico-cog ls-btn-xs'%>    
+            </td>
           </td>
         </tr>
-          <% end %>
+        <% end %>
         <% end %>
       </tbody>
     </table>
