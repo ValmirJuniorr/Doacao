@@ -30,15 +30,15 @@ ActiveRecord::Schema.define(version: 20170511202422) do
   end
 
   create_table "cadastros", force: :cascade do |t|
-    t.string   "id_cliente_coelce"
-    t.string   "digito_verificador_cliente_coelce"
-    t.string   "codigo_ocorrencia"
+    t.integer  "id_cliente_coelce"
+    t.integer  "digito_verificador_cliente_coelce"
+    t.integer  "codigo_ocorrencia"
     t.date     "data_ocorrencia"
     t.float    "valor"
-    t.string   "parcelas"
-    t.string   "id_cliente_parceira"
-    t.string   "codigo_produto"
-    t.string   "codigo_empresa_parceira"
+    t.integer  "parcelas"
+    t.integer  "id_cliente_parceira"
+    t.integer  "codigo_produto"
+    t.integer  "codigo_empresa_parceira"
     t.text     "livre"
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false

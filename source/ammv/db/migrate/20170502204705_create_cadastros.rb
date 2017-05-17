@@ -11,7 +11,6 @@ class CreateCadastros < ActiveRecord::Migration[5.0]
       t.integer :codigo_produto
       t.integer :codigo_empresa_parceira
       t.text :livre
-
       t.timestamps
     end
   end

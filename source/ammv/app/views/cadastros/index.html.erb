@@ -1,57 +1,90 @@
 <!-- <!DOCTYPE html>
-<html> -->
+  <html> -->
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container">
+      <a class="navbar-brand">  <%= link_to (image_tag("icon2.png")), root_path, class: 'navbar-brand' %></a>
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
 
-<head>
-              
-      <title>AMMV</title>
-</head>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="active"> <%=link_to 'Inicio', root_path%></li>
+          <li> <%=link_to 'Cadastrar' , new_cadastro_path%> </li>
+          <% if policy(@cadastros).index? %>
+          <li> <%=link_to 'Relatórios', relatorios_index_path%> </li>
+          <% end %>
+          <li><%=link_to "Sair", destroy_user_session_path, :method => :delete%></li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
 
-<body >
+  <!-- Teste -->
 
-
-
-  <p id="notice"><%= notice %></p>
-  <div class="table-responsive" align="center">
-    <h1>Cadastros</h1>
-    <center>
-      <%= form_tag(cadastros_path, method: :get) do %>
-        <%= text_field_tag 'search', nil, placeholder: 'Digite o Código do Cliente' %>
-        <%= submit_tag "Buscar"%>
-      <% end %>
-    </center>
-    <br>
-    <table class="table-striped">
-      <tr  height="20">
-        <th width="150"><p>Id cliente coelce</p></th>            
-        <th width="150"><p>Codigo ocorrencia</th>            
-        <th width="150"><p>Valor</th>
-        <th width="150"><p>Parcelas</th>
-        <th width="150"><p>Autor</th>
-      </tr>       
-     
-        <% @cadastros.each do |cadastro| %>
-        <tr height="25">
-          <td align=center><%= cadastro.id_cliente_coelce %></td>              
-          <td align="center"><%= cadastro.codigo_ocorrencia %></td>              
-          <td align="center"><%= cadastro.valor %></td>
-          <td align="center"><%= cadastro.parcelas %></td>  
-          <td align="center"><span class="label label-warning"><%= cadastro.user.username %></span></td> 
-          <td align="center">
-
-            <div>
-             <% if current_user %>
-              <%= link_to 'Ver', cadastro,class: 'btn btn-xs btn-primary' %>
-              <%= link_to 'Editar', edit_cadastro_path(cadastro), class: 'btn btn-xs btn-info'%>              
-             <% end %>
-            </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="page-header">
+          <h1 align="center">Cadastros</h1>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-4 col-lg-offset-4" align="right">
+        <input type="search" id="search" value="" class="form-control" placeholder="Buscador">
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <table class="table" id="table">
+        <thead>
+          <tr>
+            <th>Id Cliente Coelce</th>
+            <th>Codigo Ocorrencia</th>
+            <th>Valor</th>
+            <th>Parcelas</th>
+            <%if policy(@cadastros).index? %>
+            <th>Autor</th>
+            <% end %>
+          </tr>
+        </thead>
+        <tbody>
+          <% @cadastros.each do |cadastro| %>
+          <tr>
+            <%if current_user.id == cadastro.user_id || policy(@cadastros).index? %>
+            <td><%= cadastro.id_cliente_coelce %></td>
+            <td><%= cadastro.codigo_ocorrencia %></td>                  
+            <td><%= cadastro.valor %></td>
+            <td><%= cadastro.parcelas %></td>
+            <%if policy(@cadastros).index? %>
+            <td><%= cadastro.user.username %></td>
+            <% end %>
+            <td align="center">
+              <%= link_to 'Ver', cadastro,class: 'ls-btn-primary ls-btn-xs' %>
+              <%= link_to 'Editar', edit_cadastro_path(cadastro),class: 'ls-btn ls-ico-cog ls-btn-xs'%>    
+            </td>
           </td>
         </tr>
-          <% end %> 
-      
+        <% end %>
+        <% end %>
+      </tbody>
     </table>
+    <hr>
   </div>
-  <center>
-    <%=link_to 'Cadastrar' , new_cadastro_path, class: 'btn btn-sm btn-default' %>
-  </center>
-  </body>
-</html>
+</div>
+
+<script src="//rawgithub.com/stidges/jquery-searchable/master/dist/jquery.searchable-1.0.0.min.js"></script>
