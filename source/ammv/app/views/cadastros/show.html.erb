@@ -1,58 +1,70 @@
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container">
+    <a class="navbar-brand">  <%= link_to (image_tag("icon2.png")), root_path, class: 'navbar-brand' %></a>
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li> <%=link_to 'Inicio', root_path%></li>
+        <li> <%=link_to 'Cadastrar' , new_cadastro_path%> </li>
+        <% if policy(@cadastro).index? %>
+        <li> <%=link_to 'Relatórios', relatorios_index_path%> </li>
+        <% end %>
+        <li><%=link_to "Sair", destroy_user_session_path, :method => :delete%></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
 <div class="container">
-    <p>
-  <strong>Id cliente coelce:</strong>
-  <%= @cadastro.id_cliente_coelce %>
-</p>
-
-<p>
-  <strong>Digito verificador cliente coelce:</strong>
-  <%= @cadastro.digito_verificador_cliente_coelce %>
-</p>
-
-<p>
-  <strong>Codigo ocorrencia:</strong>
-  <%= @cadastro.codigo_ocorrencia %>
-</p>
-
-<p>
-  <strong>Data ocorrencia:</strong>
-  <%= @cadastro.data_ocorrencia %>
-</p>
-
-<p>
-  <strong>Valor:</strong>
-  <%= @cadastro.valor %>
-</p>
-
-<p>
-  <strong>Parcelas:</strong>
-  <%= @cadastro.parcelas %>
-</p>
-
-<p>
-  <strong>Id cliente parceira:</strong>
-  <%= @cadastro.id_cliente_parceira %>
-</p>
-
-<p>
-  <strong>Codigo produto:</strong>
-  <%= @cadastro.codigo_produto %>
-</p>
-
-<p>
-  <strong>Codigo empresa parceira:</strong>
-  <%= @cadastro.codigo_empresa_parceira %>
-</p>
-
-<p>
-  <strong>Livre:</strong>
-  <%= @cadastro.livre %>
-</p>
-
-<%= link_to 'Edit', edit_cadastro_path(@cadastro) %> |
-<%= link_to 'Back', cadastros_path %>
-<% if policy(@cadastro).index? %>
-    <%= button_to 'Excluir', cadastro_path(@cadastro), class: 'btn btn-xs btn-danger', method: :delete, data: { confirm: 'Tem certeza que deseja excluir o registro?' } %>
-<% end %>
+  <div class="page-header"> <br> <br> <h1> Informações </h1></div>
+  <div class="panel-group">
+    <div class="panel panel-primary class">
+      <div class="panel-body">Id Cliente:  <b> <%= @cadastro.id_cliente_coelce %> </b> </div>
+    </div>
+    <div class="panel panel-primary class">
+      <div class="panel-body">Digito Verificador Cliente Coelce:  <b> <%= @cadastro.digito_verificador_cliente_coelce %> </b> </div>
+    </div>
+    <div class="panel panel-primary class">
+      <div class="panel-body">Código Ocorrência:  <b> <%= @cadastro.codigo_ocorrencia %> </b> </div>
+    </div>
+    <div class="panel panel-primary class">
+      <div class="panel-body">Data Ocorrência:  <b> <%= @cadastro.data_ocorrencia %> </b> </div>
+    </div>
+    <div class="panel panel-primary class">
+      <div class="panel-body">Valor:  <b> <%= @cadastro.valor %> </b> </div>
+    </div>
+    <div class="panel panel-primary class">
+      <div class="panel-body">Parcelas:  <b> <%= @cadastro.parcelas %> </b> </div>
+    </div>
+    <div class="panel panel-primary class">
+      <div class="panel-body">Id Cliente Parceira:  <b> <%= @cadastro.id_cliente_parceira %> </b> </div>
+    </div>
+    <div class="panel panel-primary class">
+      <div class="panel-body">Código Produto:  <b> <%= @cadastro.codigo_produto %> </b> </div>
+    </div>
+    <div class="panel panel-primary class">
+      <div class="panel-body">Código Empresa Parceira: <b> <%= @cadastro.codigo_empresa_parceira %></b> </div>
+    </div>
+    <div class="panel panel-primary class">
+      <div class="panel-body">Livre: <i> <%= @cadastro.livre %> </i> </div>
+    </div>
+    <br>
+    <td>
+      <%= link_to 'Editar', edit_cadastro_path(@cadastro), class: 'ls-btn ls-ico-cog ls-btn-xs' %> 
+      <% if policy(@cadastro).index? %>
+      <%= link_to 'Excluir', cadastro_path(@cadastro), class: 'btn btn-xs btn-danger', method: :delete, data: { confirm: 'Tem certeza que deseja excluir o registro?' } %>
+    </td>
+    
+  </div>
+  <% end %>
 
 </div>

@@ -86,6 +86,11 @@
             <p class="ls-label-info">Dígite o código da empresa parceira</p>
             <%= f.number_field :codigo_empresa_parceira%>
           </label>
+          <label class="ls-label col-md-11">
+            <b class="ls-label-text">Livre</b>
+            <p class="ls-label-info">Campo Livre</p>
+            <%= f.text_field :livre%>
+          </label>
           <br>
           <div class="footer" align="center">
             <%= f.submit "Salvar", class:"btn btn-primary"%>
