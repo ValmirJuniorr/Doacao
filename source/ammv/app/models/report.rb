@@ -33,5 +33,6 @@ class Report < ApplicationRecord
 		File.open(fileName, 'w') do |reportFile|
 			reportFile.puts registroA+registroD+registroZ			
 		end
+		@conteudo_relatorio= registroA+registroD+registroZ
 	end
 end

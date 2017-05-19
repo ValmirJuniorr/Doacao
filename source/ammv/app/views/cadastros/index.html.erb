@@ -19,7 +19,7 @@
           <li><%=link_to "Editar Perfil", edit_user_registration_path %></li>
           <li> <%=link_to 'Cadastrar' , new_cadastro_path%> </li>
           <% if policy(@cadastros).index? %>
-          <li> <%=link_to 'Relatórios', relatorios_index_path%> </li>
+          <li> <%=link_to 'Relatórios', relatorios_path%> </li>
           <% end %>
           <li><%=link_to "Sair", destroy_user_session_path, :method => :delete%></li>
 
