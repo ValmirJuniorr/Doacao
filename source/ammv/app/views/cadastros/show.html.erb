@@ -20,8 +20,8 @@
         <% end %>
         <li><%=link_to "Sair", destroy_user_session_path, :method => :delete%></li>
       </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
+    </div>
+  </div>
 </nav>
 
 <div class="container">
@@ -37,7 +37,7 @@
       <div class="panel-body">Código Ocorrência:  <b> <%= @cadastro.codigo_ocorrencia %> </b> </div>
     </div>
     <div class="panel panel-primary class">
-      <div class="panel-body">Data Ocorrência:  <b> <%= @cadastro.data_ocorrencia %> </b> </div>
+      <div class="panel-body">Data Ocorrência:  <b> <%= @cadastro.data_ocorrencia.strftime("%d / %m / %Y")%> </b> </div>
     </div>
     <div class="panel panel-primary class">
       <div class="panel-body">Valor:  <b> <%= @cadastro.valor %> </b> </div>
