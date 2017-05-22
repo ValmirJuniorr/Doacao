@@ -38,55 +38,55 @@
     </div>
     <br>
     <fieldset>
-      <div class="container">
+      <div class="cadastro">
         <div class="row well">
-          <label class="ls-label col-md-3">
+          <label class="ls-label col-md-12">
             <b class="ls-label-text">ID</b>
             <p class="ls-label-info">Digite o ID do cliente coelce</p>
             <%= f.number_field :id_cliente_coelce%>
           </label>
-          <label class="ls-label col-md-4">
+          <label class="ls-label col-md-12">
             <b class="ls-label-text">Digito Verificador</b>
             <p class="ls-label-info">Digite o dígito verificador do Cliente Coelce</p>
             <%= f.number_field :digito_verificador_cliente_coelce%>
           </label>
-          <label class="ls-label col-md-4">
+          <label class="ls-label col-md-12">
             <b class="ls-label-text">Código Ocorrência</b>
             <p class="ls-label-info">Digite o código de ocorrência</p>
             <%= f.number_field :codigo_ocorrencia %>
           </label>
-          <label class="ls-label col-md-3">
+          <label class="ls-label col-md-12">
             <b class="ls-label-text">Data Ocorrência</b>
             <p class="ls-label-info">Insira a data de Ocorrência</p>
             <br>
             <%= f.date_select :data_ocorrencia, :order => [:day, :month, :year], :use_month_names=>["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]%>
           </label>
-          <label class="ls-label col-md-4">
+          <label class="ls-label col-md-12">
             <b class="ls-label-text">Valor</b>
             <p class="ls-label-info">Dígite o Valor</p>
             <%= f.number_field :valor, :step => 0.01%>
           </label>
-          <label class="ls-label col-md-3 ">
+          <label class="ls-label col-md-12 ">
             <b class="ls-label-text">Parcelas</b>
             <p class="ls-label-info">Dígite o número de Parcelas</p>
             <%= f.number_field :parcelas%>
           </label>
-          <label class="ls-label col-md-3">
+          <label class="ls-label col-md-12">
             <b class="ls-label-text">Id Cliente Parceiro</b>
             <p class="ls-label-info">Dígite o Id do Cliente Parceiro</p>
             <%= f.number_field :id_cliente_parceira%>
           </label>
-          <label class="ls-label col-md-4">
+          <label class="ls-label col-md-12">
             <b class="ls-label-text">Código Produto</b>
             <p class="ls-label-info">Insira o Código Produto</p>
             <%= f.number_field :codigo_produto%>
           </label>
-          <label class="ls-label col-md-4">
+          <label class="ls-label col-md-12">
             <b class="ls-label-text">Código Empresa Parceira</b>
             <p class="ls-label-info">Dígite o código da empresa parceira</p>
             <%= f.number_field :codigo_empresa_parceira%>
           </label>
-          <label class="ls-label col-md-11">
+          <label class="ls-label col-md-12">
             <b class="ls-label-text">Livre</b>
             <p class="ls-label-info">Campo Livre</p>
             <%= f.text_area:livre%>

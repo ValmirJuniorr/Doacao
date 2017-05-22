@@ -24,7 +24,7 @@
   </div>
 </nav>
 
-<div class="container">
+<div class="cadastro">
   <div class="page-header"> <br> <br> <h1> Informações </h1></div>
   <div class="panel-group">
     <div class="panel panel-primary class">
@@ -63,7 +63,6 @@
       <% if policy(@cadastro).index? %>
       <%= link_to 'Excluir', cadastro_path(@cadastro), class: 'btn btn-xs btn-danger', method: :delete, data: { confirm: 'Tem certeza que deseja excluir o registro?' } %>
     </td>
-    
   </div>
   <% end %>
 
