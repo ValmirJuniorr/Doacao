@@ -14,13 +14,12 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
           <li class="active"> <%=link_to 'Inicio', root_path%></li>
-          <li><%=link_to "Editar Perfil", edit_user_registration_path %></li>
           <li> <%=link_to 'Cadastrar' , new_cadastro_path%> </li>
           <% if policy(@cadastros).index? %>
           <li> <%=link_to 'Relatórios', relatorios_path%> </li>
           <% end %>
+          <li><%=link_to "Editar Perfil", edit_user_registration_path %></li>
           <li><%=link_to "Sair", destroy_user_session_path, :method => :delete%></li>
-
         </ul>
       </div>
     </div>

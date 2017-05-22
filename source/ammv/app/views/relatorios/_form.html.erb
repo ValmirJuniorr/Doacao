@@ -13,12 +13,20 @@
 <nav class="navbar navbar-default" role="navigation">
   <div class="container">
     <a class="navbar-brand">  <%= link_to (image_tag("icon2.png")), root_path, class: 'navbar-brand' %></a>
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
         <li> <%=link_to 'Inicio', root_path%></li>
-        <li> <%=link_to 'Cadastrar' , new_cadastro_path%> </li>
-        <li class="active"> <%=link_to 'Relatórios'%> </li>
+        <li> <%=link_to 'Relatórios', relatorios_path%> </li>
+        <li class="active"> <%=link_to 'Novo Relatório', new_relatorio_path%> </li>
         <li><%=link_to "Sair", destroy_user_session_path, :method => :delete%></li>
       </ul>
     </div>
@@ -34,16 +42,16 @@
   <fieldset>
     <div class="relatorio">
       <div class="row well">
-          <b class="ls-label-text">Data Inicial</b>
-          <p class="ls-label-info">Selecione a Data Inicial</p><br>
-          <%= f.date_select  :data_inicio, :order => [:day, :month, :year], :use_month_names=>["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]%>
-          <br> <br>
-          <b class="ls-label-text">Data Final</b>
-          <p class="ls-label-info">Selecione a Data Final</p><br>
-          <%= f.date_select  :data_final, :order => [:day, :month, :year], :use_month_names=>["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]%>
+        <b class="ls-label-text">Data Inicial</b>
+        <p class="ls-label-info">Selecione a Data Inicial</p>
+        <%= f.date_select  :data_inicio, :order => [:day, :month, :year], :use_month_names=>["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]%>
+        <br> <br>
+        <b class="ls-label-text">Data Final</b>
+        <p class="ls-label-info">Selecione a Data Final</p>
+        <%= f.date_select :data_final, :order => [:day, :month, :year], :use_month_names=>["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]%>
         <br>
         <div class="footer" align="center">
-          <%= f.submit "Salvar", class:"btn btn-primary"%>
+          <%=f.submit "Salvar", class:"btn btn-primary"%>
           <%=link_to 'Cancelar', root_path, class: 'ls-btn-primary-danger'%>
         </div>
       </fieldset>       

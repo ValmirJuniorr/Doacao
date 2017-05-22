@@ -21,9 +21,6 @@
       <ul class="nav navbar-nav navbar-right">
         <li> <%=link_to 'Inicio', root_path%></li>
         <li class="active"> <%=link_to 'Cadastrar' , new_cadastro_path%> </li>
-        <% if policy(@cadastro).index? %>
-          <li> <%=link_to 'Relatórios'%> </li>
-        <% end %>
         <li><%=link_to "Sair", destroy_user_session_path, :method => :delete%></li>
       </ul>
     </div><!-- /.navbar-collapse -->
@@ -35,7 +32,7 @@
   <div class="ls-form row container-fluid">
     <div class="page-header">
       <h2 align="center">Doador</h2>
-    </div>
+  </div>
     <br>
     <fieldset>
       <div class="cadastro">

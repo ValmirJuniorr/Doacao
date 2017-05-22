@@ -400,3 +400,9 @@ label:hover:before {
   float: none;
   margin: 0 auto;
 }
+
+.container_relatorio {
+  width: 500px;
+  float: none;
+  margin: 0 auto;
+}
