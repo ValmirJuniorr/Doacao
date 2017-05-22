@@ -22,36 +22,32 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 <%= devise_error_messages! %>
 
-<div class="container-fluid">
+<div class="cadastro">
   <div class="row well">
-    <form action="" class="ls-form">
-      <fieldset>
-        <label class="ls-label col-md-3">
+        <label class="ls-label col-md-12">
           <b class="ls-label-text">Username</b>
           <%= f.text_field :username, autofocus: true %>
         </label> 
-        <label class="ls-label col-md-3">
+        <label class="ls-label col-md-12">
           <b class="ls-label-text">E-mail</b>
           <%= f.text_field :email, autofocus: false %>
         </label> 
-        <label class="ls-label col-md-3">
+        <label class="ls-label col-md-12">
           <b class="ls-label-text">Senha (<%= @minimum_password_length %> letras no mínimo)</b>
           <% if @minimum_password_length %>
           <% end %>
           <%= f.password_field :password, autocomplete: "off" %>
         </label>
-        <label class="ls-label col-md-3">
+        <label class="ls-label col-md-12">
           <b class="ls-label-text">Inserir senha novamente</b>
           <div class="field">
             <%= f.password_field :password_confirmation, autocomplete: "off" %>
           </div>
         </label>
-      </fieldset>
       <div align="center">
-          <br>
-          <%= f.submit "Cadastrar", class: "btn btn-lg btn-primary"%>
-      </div>
-    </form>    
+        <br>
+        <%= f.submit "Cadastrar", class: "btn btn-primary"%>
+      </div>   
   </div>
 </div>
 <% end %>

@@ -9,34 +9,44 @@
   </ul>
 </div>
 <% end %>
-  <br>
-  <div class="ls-form row container-fluid">
-    <div class="page-header">
-      <h2 align="center">Relatorio</h2>
-    </div>
-    <br>
-    <fieldset>
-      <div class="container">
-        <div class="row">
-          <label class="ls-label col-md-3">
-            <b class="ls-label-text">Data Inicial</b>
-            <p class="ls-label-info">Selecione a Data Inicial</p><br>
-            <%= f.date_select  :data_inicio%>
-          </label>
-          
-          <label class="ls-label col-md-3">
-            <b class="ls-label-text">Data Final</b>
-            <p class="ls-label-info">Selecione a Data Final</p><br>
-            <%= f.date_select  :data_final%>
-          </label>
-          <br>
-          <div class="footer" align="center">
-            <%= f.submit "Salvar", class:"btn btn-primary"%>
-            <%=link_to 'Cancelar', root_path, class: 'ls-btn-primary-danger'%>
-          </div>
-        </fieldset>       
+
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container">
+    <a class="navbar-brand">  <%= link_to (image_tag("icon2.png")), root_path, class: 'navbar-brand' %></a>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li> <%=link_to 'Inicio', root_path%></li>
+        <li> <%=link_to 'Cadastrar' , new_cadastro_path%> </li>
+        <li class="active"> <%=link_to 'Relatórios'%> </li>
+        <li><%=link_to "Sair", destroy_user_session_path, :method => :delete%></li>
+      </ul>
     </div>
   </div>
+</nav>
 
-
+<br>
+<div class="ls-form row container-fluid">
+  <div class="page-header">
+    <h2 align="center">Relatório</h2>
+  </div>
+  <br>
+  <fieldset>
+    <div class="relatorio">
+      <div class="row well">
+          <b class="ls-label-text">Data Inicial</b>
+          <p class="ls-label-info">Selecione a Data Inicial</p><br>
+          <%= f.date_select  :data_inicio, :order => [:day, :month, :year], :use_month_names=>["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]%>
+          <br> <br>
+          <b class="ls-label-text">Data Final</b>
+          <p class="ls-label-info">Selecione a Data Final</p><br>
+          <%= f.date_select  :data_final, :order => [:day, :month, :year], :use_month_names=>["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]%>
+        <br>
+        <div class="footer" align="center">
+          <%= f.submit "Salvar", class:"btn btn-primary"%>
+          <%=link_to 'Cancelar', root_path, class: 'ls-btn-primary-danger'%>
+        </div>
+      </fieldset>       
+    </div>
+  </div>
   <% end %>

@@ -13,8 +13,6 @@ Rails.application.routes.draw do
 
   resources :relatorios
 
-  get 'relatorios#download', as: :download
-
   root 'cadastros#index'
 
   get '*path' => redirect('/')
