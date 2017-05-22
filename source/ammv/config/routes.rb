@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   resources :relatorios
 
-  get 'relatorios#download', as: :download
+  get 'download'=> 'relatorios#download'
 
   root 'cadastros#index'
 

@@ -33,8 +33,14 @@ class RelatoriosController < ApplicationController
 		redirect_to Relatorio.last
 	end 
 
-	def download
-    	send_file '/app/relatorio'+@relatorio.file_name, :type=>"application/SOL", :x_sendfile=>true
+	#def download
+    #	send_file '/app/relatorio'+@relatorio.file_name, :type=>"application/SOL", :x_sendfile=>true
+    #   send_file "#{Rails.root}/app/relatorios/#{@relatorio.file_name}"
+  	#end
+
+  	def download
+    	#send_file "#{Rails.root}/app/relatorios/#{params[:file_name]}"
+    	send_file "#{Rails.root}/app/relatorios/#{@relatorio.file_name}"
   	end
 
 
