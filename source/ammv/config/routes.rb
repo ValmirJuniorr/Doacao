@@ -13,7 +13,9 @@ Rails.application.routes.draw do
 
   resources :relatorios
 
-  get 'download'=> 'relatorios#download'
+  match 'download' => 'relatorios#download', via: [:get, :post]
+  #post 'download'=> 'relatorios#download'
+
 
   root 'cadastros#index'
 

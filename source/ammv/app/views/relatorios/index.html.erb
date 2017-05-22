@@ -61,9 +61,8 @@
 
           <td><%= relatorio.file_name%></td>
 
-          <td align="center">
-          <!--%= link_to 'Download', :action => :download, :file_name => relatorio.file_name %-->
-          <%= link_to 'Download', :action => :download, :id => relatorio.id %>
+          <td align="center">          
+          <%= button_to 'Download', :action => :download, :id => relatorio.id %>
           </td>        
         </tr>
         <% end %>

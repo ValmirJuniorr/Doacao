@@ -41,7 +41,7 @@ class RelatoriosController < ApplicationController
   	def download
     	#send_file "#{Rails.root}/app/relatorios/#{params[:file_name]}"
     	send_file "#{Rails.root}/app/relatorios/#{@relatorio.file_name}"
-  	end
+    end
 
 
 	private 
