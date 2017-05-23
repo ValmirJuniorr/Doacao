@@ -42,9 +42,7 @@
           <tr>
             <td><%=relatorio.file_name%></td>
             <td><%=relatorio.created_at.strftime("%d / %m / %Y")%></td>
-            <td>
-              <div class="ls-ico-download"> <%= link_to 'Download', :action => :download, :id => relatorio.id%></div>          
-              
+            <td> <%= button_to 'Download', {:action => :download, :id => relatorio.id}, {class: 'ls-btn-xs'}%>
             </td>        
           </tr>
           <% end %>
