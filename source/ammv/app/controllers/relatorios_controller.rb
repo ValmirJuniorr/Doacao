@@ -31,7 +31,7 @@ class RelatoriosController < ApplicationController
 		@relatorio.generate 1
 
 		@relatorio.save
-		redirect_to Relatorio.last
+		redirect_to root_path
 	end 
 
 	
