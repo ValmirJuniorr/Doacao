@@ -59,10 +59,10 @@
             <%if current_user.id == cadastro.user_id || policy(@cadastros).index? %>
             <td><%= cadastro.id_cliente_coelce %></td>
             <td><%= cadastro.codigo_ocorrencia %></td>                  
-            <td><%= cadastro.valor %></td>
+            <td> R$ <%= cadastro.valor %></td>
             <td><%= cadastro.parcelas %></td>
             <%if policy(@cadastros).index? %>
-            <td><%= cadastro.user.username %></td>
+            <td><span class = "label label-info"><%= cadastro.user.username %></span></td>
             <% end %>
             <td align="center">
               <%= link_to 'Ver', cadastro,class: 'ls-btn-primary ls-btn-xs' %>
