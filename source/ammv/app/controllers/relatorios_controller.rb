@@ -17,6 +17,7 @@ class RelatoriosController < ApplicationController
 	def create
 
 		@relatorio = Relatorio.new(relatorio_params)
+		@relatorio.save
 		
 		@cadastros = Cadastro.where(data_ocorrencia: (@relatorio.data_inicio)..@relatorio.data_final)
 		
@@ -25,13 +26,23 @@ class RelatoriosController < ApplicationController
 			cadastros_relatorio = CadastrosRelatorio.new
 			cadastros_relatorio.buildFromCadastro cadastro
 			cadastros_relatorio.relatorio_id = @relatorio.id
-			@relatorio.cadastros_relatorios << cadastros_relatorio
-		end
-
-		@relatorio.generate 1
-
-		@relatorio.save
-		redirect_to root_path
+			
+			if isAdesao cadastros_relatorio 
+				cadastros_relatorio.valor =0
+				cadastros_relatorio_debito = CadastrosRelatorio.new
+				cadastros_relatorio_debito.buildFromCadastro cadastro
+				cadastros_relatorio_debito.codigo_ocorrencia = 60
+				cadastros_relatorio.relatorio_id = @relatorio.id
+				@relatorio.cadastros_relatorios << cadastros_relatorio
+				@relatorio.cadastros_relatorios << cadastros_relatorio_debito
+			else
+				@relatorio.cadastros_relatorios << cadastros_relatorio
+			end
+			
+		end		
+		@relatorio.generate	
+		@relatorio.save	
+		redirect_to relatorios_url
 	end 
 
 	
@@ -48,6 +59,10 @@ class RelatoriosController < ApplicationController
 
 	def relatorio_params
 		params.require(:relatorio).permit(:data_inicio, :data_final)
+	end
+
+	def isAdesao (cadastro)
+		cadastro.codigo_ocorrencia == 53
 	end
 
 end

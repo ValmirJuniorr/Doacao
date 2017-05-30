@@ -33,7 +33,8 @@
         <thead>
           <tr>
             <th>Nome do Relatório</th>
-            <th>Data do Relatório Gerado</th>
+            <th>Inicio</th>
+            <th>Final</th>
             <th>Download</th>          
           </tr>
         </thead>
@@ -41,7 +42,8 @@
           <% @relatorios.each do |relatorio| %>
           <tr>
             <td><%=relatorio.file_name%></td>
-            <td><%=relatorio.created_at.strftime("%d / %m / %Y")%></td>
+            <td><%=relatorio.data_inicio.strftime("%d / %m / %Y")%></td>
+            <td><%=relatorio.data_final.strftime("%d / %m / %Y")%></td>
             <td> <%= button_to 'Download', {:action => :download, :id => relatorio.id}, {class: 'ls-btn-xs'}%>
             </td>        
           </tr>
