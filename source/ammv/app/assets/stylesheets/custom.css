@@ -401,6 +401,12 @@ label:hover:before {
   margin: 0 auto;
 }
 
+.editar_perfil {
+  width: 300px;
+  float: none;
+  margin: 0 auto;
+}
+
 .container_relatorio {
   width: 500px;
   float: none;
