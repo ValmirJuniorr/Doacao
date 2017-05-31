@@ -30,15 +30,15 @@ ActiveRecord::Schema.define(version: 20170531180904) do
   end
 
   create_table "cadastros", force: :cascade do |t|
-    t.integer  "id_cliente_coelce"
-    t.integer  "digito_verificador_cliente_coelce"
-    t.integer  "codigo_ocorrencia"
+    t.string   "id_cliente_coelce"
+    t.string   "digito_verificador_cliente_coelce"
+    t.string   "codigo_ocorrencia"
     t.date     "data_ocorrencia"
     t.float    "valor"
-    t.integer  "parcelas"
-    t.integer  "id_cliente_parceira"
-    t.integer  "codigo_produto"
-    t.integer  "codigo_empresa_parceira"
+    t.string   "parcelas"
+    t.string   "id_cliente_parceira"
+    t.string   "codigo_produto"
+    t.string   "codigo_empresa_parceira"
     t.text     "livre"
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false
@@ -74,15 +74,16 @@ ActiveRecord::Schema.define(version: 20170531180904) do
   end
 
   create_table "relatorios", force: :cascade do |t|
-    t.date     "data_geracao"
     t.date     "data_inicio"
     t.date     "data_final"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
-    t.text     "conteudo_relatorio"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
     t.string   "file_name"
     t.float    "valor_total"
     t.integer  "registro_total"
+    t.string   "registroA"
+    t.text     "registroD"
+    t.string   "registroZ"
   end
 
   create_table "reports", force: :cascade do |t|
