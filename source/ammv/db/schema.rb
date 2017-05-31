@@ -88,15 +88,16 @@ ActiveRecord::Schema.define(version: 20170531180904) do
   end
 
   create_table "relatorios", force: :cascade do |t|
-    t.date     "data_geracao"
     t.date     "data_inicio"
     t.date     "data_final"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
-    t.text     "conteudo_relatorio"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
     t.string   "file_name"
     t.float    "valor_total"
     t.integer  "registro_total"
+    t.string   "registroA"
+    t.text     "registroD"
+    t.string   "registroZ"
   end
 
   create_table "reports", force: :cascade do |t|
