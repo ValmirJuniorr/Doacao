@@ -11,27 +11,58 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :nome_instituicao %>
-    <%= f.text_field :nome_instituicao %>
-  </div>
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container">
+    <a class="navbar-brand">  <%= link_to (image_tag("icon2.png")), root_path, class: 'navbar-brand' %></a>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li> <%=link_to 'Inicio', root_path%></li>
+        <li> <%=link_to 'Instituições', instituicos_path%> </li>
+        <li class="active"> <%=link_to 'Cadastrar Instituição' , new_cadastro_path%> </li>
+        <li><%=link_to "Sair", destroy_user_session_path, :method => :delete%></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
 
-  <div class="field">
-    <%= f.label :id_cliente_parceira %>
-    <%= f.number_field :id_cliente_parceira %>
+<form>
+  <br>
+  <div class="ls-form row container-fluid">
+    <div class="page-header">
+      <h2 align="center">Instituição</h2>
+    </div>
+    <br>
+    <fieldset>
+      <div class="cadastro">
+        <div class="row well">
+          <label class="ls-label col-md-12">
+            <b class="ls-label-text">Nome Instituição</b>
+            <p class="ls-label-info">Digite o nome da Instituição</p>
+            <%= f.text_field :nome_instituicao%>
+          </label>
+          <label class="ls-label col-md-12">
+            <b class="ls-label-text">Id Cliente Parceiro</b>
+            <p class="ls-label-info">Dígite o Id do Cliente Parceiro</p>
+            <%= f.number_field :id_cliente_parceira, required: true%>
+          </label>
+          <label class="ls-label col-md-12">
+            <b class="ls-label-text">Código Produto </b>
+            <p class="ls-label-info">Insira o Código Produto</p>
+            <%= f.number_field :codigo_produto, required: true %>
+          </label>
+          <label class="ls-label col-md-12">
+            <b class="ls-label-text">Código Empresa Parceira</b>
+            <p class="ls-label-info">Dígite o código da empresa parceira</p>
+            <%= f.number_field :codigo_empresa_parceira, required: true%>
+          </label>
+          <br>
+          <div class="footer" align="center">
+            <%= f.submit "Salvar", class:"btn btn-primary"%>
+            <%=link_to 'Cancelar', instituicos_path, class: 'ls-btn-primary-danger'%>
+          </div>
+        </fieldset>
+      </form>   
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :codigo_produto %>
-    <%= f.number_field :codigo_produto %>
-  </div>
-
-  <div class="field">
-    <%= f.label :codigo_empresa_parceira %>
-    <%= f.number_field :codigo_empresa_parceira %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+  <% end %>
