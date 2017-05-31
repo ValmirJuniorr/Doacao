@@ -1,7 +1,7 @@
 class Relatorio < ApplicationRecord
 	has_many :cadastros_relatorios, :dependent => :delete_all
 
-
+	i = Ammv::INSTITUICAO
 
 	#Function to Formater number decimal to n decimal with zeros
 	def fnd(n, number)
@@ -9,36 +9,22 @@ class Relatorio < ApplicationRecord
 	end
 	
 	def generate
-		
-		generateDate   = data_inicio.strftime("%Y%m%d")
+		i = INSTITUICAO
+		generateDate   = created_at.strftime("%Y%m%d")
 		self.file_name = "CEX.AMMDV.#{generateDate}.SOL"		
-		registroA      = "A201ASSOC MARIA MAE VIDA#{generateDate}#{fnd(6,self.id)}"
-		registroD      = ""
-		
-		totalRegister = 2 		
-		valueTotal    = 0
-		puts "de #{data_inicio} to #{data_final}"
-		
+		self.registroA      = "A2#{fnd(2,i.codigo_produto)}#{i.name}#{generateDate}#{fnd(6,self.id)}"
+		self.registroD      = ""		
+		self.registro_total = 2 	#2 no caso se refere ao registro do tipo e A e Registro do Tipo Z	
+		self.valueTotal    = 0
 		self.cadastros_relatorios.each do |c|
-			valor= c.valor.round(2)* 100
-			puts "#{c.valor} e  #{valor}"
-			line = "D#{fnd(10, c.id_cliente_coelce)}#{c.digito_verificador_cliente_coelce}#{fnd(2,c.codigo_ocorrencia)}"+
-					"#{c.data_ocorrencia.strftime('%m/%d/%Y')}#{fnd(9,valor)}#{fnd(2, c.parcelas)}"+
-					"#{fnd(8,c.id_cliente_parceira)}#{fnd(4, c.codigo_produto)}#{c.codigo_empresa_parceira}"
-			registroD += "\n#{line}"
-
-			totalRegister +=1
-			valueTotal += c.valor
+			valor= c.valor.round(2)* 100 # considera apenas os dois prinmeiros digitos apos a virgula
+			self.registroD += "D#{fnd(10, c.id_cliente_coelce)}#{c.digito_verificador_cliente_coelce}"+
+								"#{fnd(2,c.codigo_ocorrencia)}#{c.data_ocorrencia.strftime('%m/%d/%Y')}"+
+								"#{fnd(9,valor)}#{fnd(2, c.parcelas)}#{fnd(8,i.id_cliente_parceira)}"+
+								"#{fnd(4, i.codigo_produto)}#{i.codigo_empresa_parceira}"
+			self.registro_total +=1
+			self.valueTotal += valor
 		end
-
-		registroZ = "\nZ"+fnd(6,totalRegister)+fnd(9,(valueTotal*100))
-
-		self.valor_total        = valueTotal
-		self.registro_total     = totalRegister
-		self.conteudo_relatorio = registroA+registroD+registroZ
-
-		File.open("app/relatorios/"+self.file_name, 'w') do |reportFile|
-			reportFile.puts self.conteudo_relatorio			
-		end
+		self.registroZ = "\nZ"+fnd(6,totalRegister)+fnd(9,(valueTotal))
 	end
 end

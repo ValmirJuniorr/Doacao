@@ -15,8 +15,11 @@ class RelatoriosController < ApplicationController
 
 
 	def create
-
 		@relatorio = Relatorio.new(relatorio_params)
+		if Ammv::INSTITUICAO == nil
+			redirect_to 
+		end
+
 		@relatorio.save
 		
 		@cadastros = Cadastro.where(data_ocorrencia: (@relatorio.data_inicio)..@relatorio.data_final)
@@ -47,6 +50,7 @@ class RelatoriosController < ApplicationController
 
 	
   	def download
+  		createFile
     	send_file "#{Rails.root}/app/relatorios/#{@relatorio.file_name}"
     end
 
@@ -63,6 +67,12 @@ class RelatoriosController < ApplicationController
 
 	def isAdesao (cadastro)
 		cadastro.codigo_ocorrencia == 53
+	end
+
+	def createFile		
+		File.open("app/relatorios/"+self.file_name, 'w') do |reportFile|
+			reportFile.puts @relatorio.registroA + @relatorio.registroD + @relatorio.registroZ		
+		end
 	end
 
 end
