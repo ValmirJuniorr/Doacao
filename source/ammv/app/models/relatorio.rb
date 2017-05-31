@@ -16,7 +16,7 @@ class Relatorio < ApplicationRecord
 		self.valor_total    = 0
 		self.cadastros_relatorios.each do |c|
 			valor= c.valor.round(2)* 100 # considera apenas os dois prinmeiros digitos apos a virgula
-			self.registroD += "D#{fnd(10, c.id_cliente_coelce)}#{c.digito_verificador_cliente_coelce}"+
+			self.registroD += "\nD#{fnd(10, c.id_cliente_coelce)}#{c.digito_verificador_cliente_coelce}"+
 								"#{fnd(2,c.codigo_ocorrencia)}#{c.data_ocorrencia.strftime('%m/%d/%Y')}"+
 								"#{fnd(9,valor)}#{fnd(2, c.parcelas)}#{fnd(8,i.id_cliente_parceira)}"+
 								"#{fnd(4, i.codigo_produto)}#{i.codigo_empresa_parceira}"
