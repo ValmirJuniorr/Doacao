@@ -9,6 +9,9 @@
           <% if policy(@cadastros).index? %>
           <li> <%=link_to 'Relatórios', relatorios_path%> </li>
           <% end %>
+          <% if policy(@cadastros).index? %>
+          <li> <%=link_to 'Instituições', instituicos_path%> </li>
+          <% end %>
           <li><%=link_to "Editar Perfil", edit_user_registration_path %></li>
           <li><%=link_to "Sair", destroy_user_session_path, :method => :delete%></li>
         </ul>
@@ -53,7 +56,7 @@
             <td> R$ <%= cadastro.valor %></td>
             <td><%= cadastro.parcelas %></td>
             <%if policy(@cadastros).index? %>
-            <td><span class = "label label-info"><%= cadastro.user.username %></span></td>
+            <td><span><%= cadastro.user.username %></span></td>
             <% end %>
             <td align="center">
               <%= link_to 'Ver', cadastro,class: 'ls-btn-primary ls-btn-xs' %>

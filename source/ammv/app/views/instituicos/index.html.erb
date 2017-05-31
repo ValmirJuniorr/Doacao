@@ -1,33 +1,57 @@
-<p id="notice"><%= notice %></p>
+ <nav class="navbar navbar-default" role="navigation">
+  <div class="container">
+    <a class="navbar-brand">  <%= link_to (image_tag("icon2.png")), root_path, class: 'navbar-brand' %></a>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li> <%=link_to 'Inicio', root_path%></li>
+        <li class="active"> <%=link_to 'Instituições', instituicos_path%> </li>
+        <li> <%=link_to 'Cadastrar Instituição', new_instituico_path%></li>
+        <li><%=link_to "Sair", destroy_user_session_path, :method => :delete%></li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
-<h1>Instituicos</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Nome instituicao</th>
-      <th>Id cliente parceira</th>
-      <th>Codigo produto</th>
-      <th>Codigo empresa parceira</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @instituicos.each do |instituico| %>
-      <tr>
-        <td><%= instituico.nome_instituicao %></td>
-        <td><%= instituico.id_cliente_parceira %></td>
-        <td><%= instituico.codigo_produto %></td>
-        <td><%= instituico.codigo_empresa_parceira %></td>
-        <td><%= link_to 'Show', instituico %></td>
-        <td><%= link_to 'Edit', edit_instituico_path(instituico) %></td>
-        <td><%= link_to 'Destroy', instituico, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="page-header">
+        <h1 align="center">Instituições</h1>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-4 col-lg-offset-4" align="right">
+      <input type="search" id="search" value="" class="form-control" placeholder="Buscador">
+    </p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-12">
+    <table class="table" id="table">
+      <thead>
+        <tr>
+          <th>Nome Instituicao</th>
+          <th>Id Cliente parceira</th>
+          <th>Codigo Produto</th>
+          <th>Codigo Empresa Parceira</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @instituicos.each do |instituico| %>
+        <tr>
+          <td><%= instituico.nome_instituicao %></td>
+          <td><%= instituico.id_cliente_parceira %></td>
+          <td><%= instituico.codigo_produto %></td>
+          <td><%= instituico.codigo_empresa_parceira %></td>
+          <td align="center">
+            <%= link_to 'Ver', instituico,class: 'ls-btn-primary ls-btn-xs' %>
+            <%= link_to 'Editar', edit_instituico_path(instituico),class: 'ls-btn ls-ico-cog ls-btn-xs'%>  
+          </td>
+        </td>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Instituico', new_instituico_path %>
+      <% end %>
+    </tbody>
+  </table>
+  <hr>
+</div>
