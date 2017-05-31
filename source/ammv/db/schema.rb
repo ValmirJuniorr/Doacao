@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170519195240) do
+ActiveRecord::Schema.define(version: 20170530204018) do
 
   create_table "admin_users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 20170519195240) do
     t.integer  "digito_verificador_cliente_coelce"
     t.integer  "codigo_ocorrencia"
     t.date     "data_ocorrencia"
-    t.integer  "valor"
+    t.float    "valor"
     t.integer  "parcelas"
     t.integer  "id_cliente_parceira"
     t.integer  "codigo_produto"

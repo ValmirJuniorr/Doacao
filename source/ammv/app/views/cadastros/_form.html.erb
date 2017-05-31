@@ -42,12 +42,12 @@
           <label class="ls-label col-md-12">
             <b class="ls-label-text">Digito Verificador</b>
             <p class="ls-label-info">Digite o dígito verificador do Cliente Coelce</p>
-            <%= f.number_field :digito_verificador_cliente_coelce%>
+            <%= f.number_field :digito_verificador_cliente_coelce, required: true%>
           </label>
           <label class="ls-label col-md-12">
             <b class="ls-label-text">Código Ocorrência</b>
             <p class="ls-label-info">Digite o código de ocorrência</p>
-            <%= f.number_field :codigo_ocorrencia %>
+            <%= f.number_field :codigo_ocorrencia, required: true %>
           </label>
           <label class="ls-label col-md-12">
             <b class="ls-label-text">Data Ocorrência</b>
@@ -58,27 +58,27 @@
           <label class="ls-label col-md-12">
             <b class="ls-label-text">Valor</b>
             <p class="ls-label-info">Dígite o Valor</p>
-            <%= f.number_field :valor, :step => 0.01%>
+            <%= f.number_field :valor, :step => 0.01, required: true%>
           </label>
           <label class="ls-label col-md-12 ">
             <b class="ls-label-text">Parcelas</b>
             <p class="ls-label-info">Dígite o número de Parcelas</p>
-            <%= f.number_field :parcelas%>
+            <%= f.number_field :parcelas, required: true%>
           </label>
           <label class="ls-label col-md-12">
             <b class="ls-label-text">Id Cliente Parceiro</b>
             <p class="ls-label-info">Dígite o Id do Cliente Parceiro</p>
-            <%= f.number_field :id_cliente_parceira%>
+            <%= f.number_field :id_cliente_parceira, required: true%>
           </label>
           <label class="ls-label col-md-12">
             <b class="ls-label-text">Código Produto</b>
             <p class="ls-label-info">Insira o Código Produto</p>
-            <%= f.number_field :codigo_produto%>
+            <%= f.number_field :codigo_produto, required: true%>
           </label>
           <label class="ls-label col-md-12">
             <b class="ls-label-text">Código Empresa Parceira</b>
             <p class="ls-label-info">Dígite o código da empresa parceira</p>
-            <%= f.number_field :codigo_empresa_parceira%>
+            <%= f.number_field :codigo_empresa_parceira, required: true%>
           </label>
           <label class="ls-label col-md-12">
             <b class="ls-label-text">Livre</b>
