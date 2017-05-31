@@ -39,22 +39,22 @@
           <label class="ls-label col-md-12">
             <b class="ls-label-text">Nome Instituição</b>
             <p class="ls-label-info">Digite o nome da Instituição</p>
-            <%= f.text_field :nome_instituicao%>
+            <%= f.text_field :nome_instituicao, {:minlength => 20, :maxlength => 20,required: true}%>
           </label>
           <label class="ls-label col-md-12">
             <b class="ls-label-text">Id Cliente Parceiro</b>
             <p class="ls-label-info">Dígite o Id do Cliente Parceiro</p>
-            <%= f.number_field :id_cliente_parceira, required: true%>
+            <%= f.number_field :id_cliente_parceira, {in: -1...1000000000, required: true}%>
           </label>
           <label class="ls-label col-md-12">
             <b class="ls-label-text">Código Produto </b>
             <p class="ls-label-info">Insira o Código Produto</p>
-            <%= f.number_field :codigo_produto, required: true %>
+            <%= f.number_field :codigo_produto, {in: -1...100, required: true}%>
           </label>
           <label class="ls-label col-md-12">
             <b class="ls-label-text">Código Empresa Parceira</b>
             <p class="ls-label-info">Dígite o código da empresa parceira</p>
-            <%= f.number_field :codigo_empresa_parceira, required: true%>
+            <%= f.number_field :codigo_empresa_parceira, {in: -1...10, required: true}%>
           </label>
           <br>
           <div class="footer" align="center">
