@@ -16,7 +16,8 @@ class RelatoriosController < ApplicationController
 
 	def create
 		if ! is_created_instiuicao
-			redirect_to new_instituico_path, notice: 'Cadastro was successfully created.'
+			redirect_to new_instituico_path,
+				notice: 'Antes de gerar O relatório informe os dados da instituição.'
 			return
 		end
 		@relatorio = Relatorio.new(relatorio_params)
@@ -27,7 +28,7 @@ class RelatoriosController < ApplicationController
 			cadastros_relatorio.buildFromCadastro cadastro
 			cadastros_relatorio.relatorio_id = @relatorio.id
 
-			if isAdesao cadastros_relatorio 
+			if isAdesao cadastros_relatorio # deve se gerar um novo cadastro com os
 				cadastros_relatorio.valor =0
 				cadastros_relatorio_debito = CadastrosRelatorio.new
 				cadastros_relatorio_debito.buildFromCadastro cadastro
@@ -47,8 +48,8 @@ class RelatoriosController < ApplicationController
 
 	
 	def download
-		createFile
-		send_file "#{Rails.root}/app/relatorios/#{@relatorio.file_name}"
+		content = @relatorio.registroA + @relatorio.registroD+ @relatorio.registroZ
+		send_data(content, :filename => @relatorio.file_name)
 	end
 
 
@@ -64,12 +65,6 @@ class RelatoriosController < ApplicationController
 
 	def isAdesao (cadastro)
 		cadastro.codigo_ocorrencia == 53
-	end
-
-	def createFile		
-		File.open("app/relatorios/"+@relatorio.file_name, 'w') do |reportFile|
-			reportFile.puts @relatorio.registroA + @relatorio.registroD + @relatorio.registroZ		
-		end
 	end
 
 	def is_created_instiuicao
