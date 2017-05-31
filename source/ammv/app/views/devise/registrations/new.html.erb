@@ -1,34 +1,53 @@
-<h2>Sign up</h2>
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <a class="navbar-brand">  <%= link_to (image_tag("icon2.png")), root_path, class: 'navbar-brand' %></a>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li> <%=link_to 'Inicio', root_path%></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<div class="page-header" align="center">
+  <header>
+    <h1>Cadastrar Usuário</h1>  
+  </header>
+  <br>
+</div>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+<%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :username %> <br>
-    <%= f.text_field :username %>
+<div class="cadastro">
+  <div class="row well">
+        <label class="ls-label col-md-12">
+          <b class="ls-label-text">Username</b>
+          <%= f.text_field :username, autofocus: true %>
+        </label> 
+        <label class="ls-label col-md-12">
+          <b class="ls-label-text">E-mail</b>
+          <%= f.text_field :email, autofocus: false %>
+        </label> 
+        <label class="ls-label col-md-12">
+          <b class="ls-label-text">Senha (<%= @minimum_password_length %> letras no mínimo)</b>
+          <% if @minimum_password_length %>
+          <% end %>
+          <%= f.password_field :password, autocomplete: "off" %>
+        </label>
+        <label class="ls-label col-md-12">
+          <b class="ls-label-text">Inserir senha novamente</b>
+          <div class="field">
+            <%= f.password_field :password_confirmation, autocomplete: "off" %>
+          </div>
+        </label>
+      <div align="center">
+        <br>
+        <%= f.submit "Cadastrar", class: "btn btn-primary"%>
+      </div>   
   </div>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
-
-  <div class="field">
-    Senha
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> letras no mńimo)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    Inserir Senha Novamente<br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Cadastrar" %>
-  </div>
+</div>
 <% end %>
-
-<%= render "devise/shared/links" %>

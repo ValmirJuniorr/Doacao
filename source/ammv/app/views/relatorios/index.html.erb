@@ -1,47 +1,56 @@
-<h1>Relatórios</h1>
-
-<div class="ls-box-filter">
-  <form action="" class="ls-form ls-form-inline">
-    <input type="hidden" name="status" value="">
-    <label class="ls-label col-md-4 col-sm-4">
-      <b class="ls-label-text">Período</b>
-      <div class="ls-custom-select">
-        <select name="period" id="select_period" class="ls-select">
-            <option>Hoje</option>
-            <option>Ontem</option>
-            <option>Última semana</option>
-            <option>Últimos 30 dias</option>
-            <option>Últimos 6 meses</option>
-            <option>Últimos 12 meses</option>
-            <option>Personalizado</option>
-            <option>Locawebstyle é o framework da Locaweb</option>
-        </select>
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container">
+      <a class="navbar-brand">  <%= link_to (image_tag("icon2.png")), root_path, class: 'navbar-brand' %></a>
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
       </div>
-    </label>
-    <label class="ls-label col-md-2 col-sm-2">
-      <span id="new_feature_custom_filter_2" data-ls-module="popover" data-content="Escolha o período desejado e clique em 'Filtrar'."></span>
-      <input type="text" name="range_start" class="datepicker ls-daterange" placeholder="dd/mm/aaaa" id="datepicker3" data-ls-daterange="#datepicker4">
-    </label>
-    <label class="ls-label col-md-2 col-sm-2">
-      <span id="new_feature_custom_filter_3" data-ls-module="popover" data-content="Clique em 'Filtrar' para exibir  o período selecionado."></span>
-      <input type="text" name="range_end" class="datepicker ls-daterange" placeholder="dd/mm/aaaa" id="datepicker4">
-    </label>
-    <label class="ls-label col-md-1 col-sm-1">
-      <input type="submit" class="ls-btn-primary" value="Filtrar">
-    </label>
-    <div data-ls-module="dropdown" class="ls-dropdown ls-float-right" id="step4">
-      <a href="#" class="ls-btn" role="combobox" aria-expanded="false">Exportar</a>
-      <ul class="ls-dropdown-nav" aria-hidden="true">
-        <li>
-          <a href="" role="option" tabindex="-1">CSV</a>
-        </li>
-        <li>
-          <a data-action="open_modal_export" data-ls-module="modal" data-report-ext="XLS" data-target="#modal_export" href="" role="option" tabindex="-1">XLS</a>
-        </li>
-        <li>
-          <a class="ls-divider" data-action="open_modal_export" data-ls-module="modal" data-target="#modal_exported_reports" data-url="/panel/exports" href="" id="link_exported_reports" role="option" tabindex="-1">Relatórios exportados</a>
-        </li>
-      </ul>
+
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li> <%=link_to 'Inicio', root_path%></li>
+          <li class="active"> <%=link_to 'Relatórios', relatorios_path%> </li>
+          <li> <%=link_to 'Novo Relatório', new_relatorio_path%> </li>
+          <li><%=link_to "Sair", destroy_user_session_path, :method => :delete%></li>
+        </ul>
+      </div>
     </div>
-  </form>
+  </nav>
+
+<div class="ls-form row container-fluid">
+    <div class="page-header">
+      <h2 align="center">Relatórios</h2>
+  </div>
+
+<div class="container_relatorio">
+  <div class="row">
+    <div class="col-lg-12">
+      <table class="table" id="table">
+        <thead>
+          <tr>
+            <th>Nome do Relatório</th>
+            <th>Inicio</th>
+            <th>Final</th>
+            <th>Download</th>          
+          </tr>
+        </thead>
+        <tbody>
+          <% @relatorios.each do |relatorio| %>
+          <tr>
+            <td><%=relatorio.file_name%></td>
+            <td><%=relatorio.data_inicio.strftime("%d / %m / %Y")%></td>
+            <td><%=relatorio.data_final.strftime("%d / %m / %Y")%></td>
+            <td> <%= button_to 'Download', {:action => :download, :id => relatorio.id}, {class: 'ls-btn-xs'}%>
+            </td>        
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <hr>
+    </div>
+  </div>
 </div>

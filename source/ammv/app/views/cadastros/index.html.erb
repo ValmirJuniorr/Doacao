@@ -1,34 +1,29 @@
-<!-- <!DOCTYPE html>
-  <html> -->
-  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+  <script src="//rawgithub.com/stidges/jquery-searchable/master/dist/jquery.searchable-1.0.0.min.js"></script>
   <nav class="navbar navbar-default" role="navigation">
     <div class="container">
       <a class="navbar-brand">  <%= link_to (image_tag("icon2.png")), root_path, class: 'navbar-brand' %></a>
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-          <span class="sr-only">Toggle navigation</span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
       </div>
 
-      <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
           <li class="active"> <%=link_to 'Inicio', root_path%></li>
           <li> <%=link_to 'Cadastrar' , new_cadastro_path%> </li>
           <% if policy(@cadastros).index? %>
-            <li> <%=link_to 'Relatórios', relatorios_index_path%> </li>
+          <li> <%=link_to 'Relatórios', relatorios_path%> </li>
           <% end %>
+          <li><%=link_to "Editar Perfil", edit_user_registration_path %></li>
           <li><%=link_to "Sair", destroy_user_session_path, :method => :delete%></li>
         </ul>
-      </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
+      </div>
+    </div>
   </nav>
-
-  <!-- Teste -->
 
   <div class="container">
     <div class="row">
@@ -36,10 +31,6 @@
         <div class="page-header">
           <h1 align="center">Cadastros</h1>
         </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-lg-12">
       </div>
     </div>
     <div class="row">
@@ -57,7 +48,7 @@
             <th>Codigo Ocorrencia</th>
             <th>Valor</th>
             <th>Parcelas</th>
-             <%if policy(@cadastros).index? %>
+            <%if policy(@cadastros).index? %>
             <th>Autor</th>
             <% end %>
           </tr>
@@ -66,25 +57,23 @@
           <% @cadastros.each do |cadastro| %>
           <tr>
             <%if current_user.id == cadastro.user_id || policy(@cadastros).index? %>
-              <td><%= cadastro.id_cliente_coelce %></td>
-              <td><%= cadastro.codigo_ocorrencia %></td>                  
-              <td><%= cadastro.valor %></td>
-              <td><%= cadastro.parcelas %></td>
-              <%if policy(@cadastros).index? %>
-                <td><%= cadastro.user.username %></td>
-              <% end %>
-              <td>
-                  <%= link_to 'Ver', cadastro,class: 'ls-btn-primary' %>
-                  <%= link_to 'Editar', edit_cadastro_path(cadastro),class: 'ls-btn ls-ico-cog'%>    
-              </td>
+            <td><%= cadastro.id_cliente_coelce %></td>
+            <td><%= cadastro.codigo_ocorrencia %></td>                  
+            <td> R$ <%= cadastro.valor %></td>
+            <td><%= cadastro.parcelas %></td>
+            <%if policy(@cadastros).index? %>
+            <td><span class = "label label-info"><%= cadastro.user.username %></span></td>
+            <% end %>
+            <td align="center">
+              <%= link_to 'Ver', cadastro,class: 'ls-btn-primary ls-btn-xs' %>
+              <%= link_to 'Editar', edit_cadastro_path(cadastro),class: 'ls-btn ls-ico-cog ls-btn-xs'%>  
+            </td>
           </td>
         </tr>
-          <% end %>
+        <% end %>
         <% end %>
       </tbody>
     </table>
     <hr>
   </div>
 </div>
-
-<script src="//rawgithub.com/stidges/jquery-searchable/master/dist/jquery.searchable-1.0.0.min.js"></script>

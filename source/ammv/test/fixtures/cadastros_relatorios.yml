@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id_cliente_coelce: 1
+  digito_verificador_cliente_coelce: 1
+  codigo_ocorrencia: 1
+  data_ocorrencia: 2017-05-17
+  valor: 1
+  parcelas: 1
+  id_cliente_parceira: 1
+  codigo_produto: 1
+  codigo_empresa_parceira: 1
+  livre: MyText
+  relatorio: one
+
+two:
+  id_cliente_coelce: 1
+  digito_verificador_cliente_coelce: 1
+  codigo_ocorrencia: 1
+  data_ocorrencia: 2017-05-17
+  valor: 1
+  parcelas: 1
+  id_cliente_parceira: 1
+  codigo_produto: 1
+  codigo_empresa_parceira: 1
+  livre: MyText
+  relatorio: two

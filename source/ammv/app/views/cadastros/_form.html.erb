@@ -13,15 +13,11 @@
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 <nav class="navbar navbar-default" role="navigation">
   <div class="container">
-    <!-- Brand and toggle get grouped for better mobile display -->
-     <a class="navbar-brand">  <%= link_to (image_tag("icon2.png")), root_path, class: 'navbar-brand' %></a>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
+    <a class="navbar-brand">  <%= link_to (image_tag("icon2.png")), root_path, class: 'navbar-brand' %></a>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
         <li> <%=link_to 'Inicio', root_path%></li>
         <li class="active"> <%=link_to 'Cadastrar' , new_cadastro_path%> </li>
-        <li> <%=link_to 'Relatórios'%> </li>
         <li><%=link_to "Sair", destroy_user_session_path, :method => :delete%></li>
       </ul>
     </div><!-- /.navbar-collapse -->
@@ -32,61 +28,72 @@
   <br>
   <div class="ls-form row container-fluid">
     <div class="page-header">
-          <h2 align="center"> Cadastramento </h2>
-    </div>
-  <br>
-    <fieldset> 
-      <label class="ls-label col-md-3">
-        <b class="ls-label-text">ID</b>
-        <p class="ls-label-info">Digite o ID do cliente coelce</p>
-        <%= f.number_field :id_cliente_coelce%>
-      </label>
-      <label class="ls-label col-md-4">
-        <b class="ls-label-text">Digito Verificador</b>
-        <p class="ls-label-info">Digite o dígito verificador do Cliente Coelce</p>
-        <%= f.number_field :digito_verificador_cliente_coelce%>
-      </label>
-      <label class="ls-label col-md-4">
-        <b class="ls-label-text">Código Ocorrência</b>
-        <p class="ls-label-info">Digite o código de ocorrência</p>
-        <%= f.number_field :codigo_ocorrencia %>
-      </label>
-      <label class="ls-label col-md-3">
-        <b class="ls-label-text">Data Ocorrência</b>
-        <p class="ls-label-info">Insira a data de Ocorrência</p>
-        <br>
-        <%= f.date_select :data_ocorrencia, :order => [:day, :month, :year], :use_month_names=>["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]%>
-      </label>
-      <label class="ls-label col-md-4">
-        <b class="ls-label-text">Valor</b>
-        <p class="ls-label-info">Dígite o Valor</p>
-        <%= f.number_field :valor, :step => 0.01%>
-      </label>
-      <label class="ls-label col-md-3 ">
-        <b class="ls-label-text">Parcelas</b>
-        <p class="ls-label-info">Dígite o número de Parcelas</p>
-        <%= f.number_field :parcelas%>
-      </label>
-      <label class="ls-label col-md-3">
-        <b class="ls-label-text">Id Cliente Parceiro</b>
-        <p class="ls-label-info">Dígite o Id do Cliente Parceiro</p>
-        <%= f.number_field :id_cliente_parceira%>
-      </label>
-      <label class="ls-label col-md-4">
-        <b class="ls-label-text">Código Produto</b>
-        <p class="ls-label-info">Insira o Código Produto</p>
-        <%= f.number_field :codigo_produto%>
-      </label>
-      <label class="ls-label col-md-4">
-        <b class="ls-label-text">Código Empresa Parceira</b>
-        <p class="ls-label-info">Dígite o código da empresa parceira</p>
-        <%= f.number_field :codigo_empresa_parceira%>
-      </label>
-      <div class="footer page-header" align="center">
+      <h2 align="center">Doador</h2>
+  </div>
+    <br>
+    <fieldset>
+      <div class="cadastro">
+        <div class="row well">
+          <label class="ls-label col-md-12">
+            <b class="ls-label-text">ID</b>
+            <p class="ls-label-info">Digite o ID do cliente coelce</p>
+            <%= f.number_field :id_cliente_coelce, required: true%>
+          </label>
+          <label class="ls-label col-md-12">
+            <b class="ls-label-text">Digito Verificador</b>
+            <p class="ls-label-info">Digite o dígito verificador do Cliente Coelce</p>
+            <%= f.number_field :digito_verificador_cliente_coelce, required: true%>
+          </label>
+          <label class="ls-label col-md-12">
+            <b class="ls-label-text">Código Ocorrência</b>
+            <p class="ls-label-info">Digite o código de ocorrência</p>
+            <%= f.number_field :codigo_ocorrencia, required: true %>
+          </label>
+          <label class="ls-label col-md-12">
+            <b class="ls-label-text">Data Ocorrência</b>
+            <p class="ls-label-info">Insira a data de Ocorrência</p>
+            <br>
+            <%= f.date_select :data_ocorrencia, :order => [:day, :month, :year], :use_month_names=>["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]%>
+          </label>
+          <label class="ls-label col-md-12">
+            <b class="ls-label-text">Valor</b>
+            <p class="ls-label-info">Dígite o Valor</p>
+            <%= f.number_field :valor, :step => 0.01, required: true%>
+          </label>
+          <label class="ls-label col-md-12 ">
+            <b class="ls-label-text">Parcelas</b>
+            <p class="ls-label-info">Dígite o número de Parcelas</p>
+            <%= f.number_field :parcelas, required: true%>
+          </label>
+          <label class="ls-label col-md-12">
+            <b class="ls-label-text">Id Cliente Parceiro</b>
+            <p class="ls-label-info">Dígite o Id do Cliente Parceiro</p>
+            <%= f.number_field :id_cliente_parceira, required: true%>
+          </label>
+          <label class="ls-label col-md-12">
+            <b class="ls-label-text">Código Produto</b>
+            <p class="ls-label-info">Insira o Código Produto</p>
+            <%= f.number_field :codigo_produto, required: true%>
+          </label>
+          <label class="ls-label col-md-12">
+            <b class="ls-label-text">Código Empresa Parceira</b>
+            <p class="ls-label-info">Dígite o código da empresa parceira</p>
+            <%= f.number_field :codigo_empresa_parceira, required: true%>
+          </label>
+          <label class="ls-label col-md-12">
+            <b class="ls-label-text">Livre</b>
+            <p class="ls-label-info">Campo Livre</p>
+            <%= f.text_area:livre%>
+          </label>
           <br>
-          <%= f.submit "Cadastrar", class:"btn btn-primary"%>
-      </div>
-    </fieldset>
-  </form>  
+          <div class="footer" align="center">
+            <%= f.submit "Salvar", class:"btn btn-primary"%>
+            <%=link_to 'Cancelar', root_path, class: 'ls-btn-primary-danger'%>
+          </div>
+        </fieldset>
+      </form>   
+    </div>
+  </div>
+
 
   <% end %>
