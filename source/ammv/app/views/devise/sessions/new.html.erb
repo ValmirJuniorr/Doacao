@@ -1,34 +1,36 @@
-<div class="container cimg">
-  <div class="text-center" style="padding:50px 0">
-    <div class="logo"> <h2> Associação Maria Mãe da Vida </h2></div>
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="login-form-1 box-login">
-      <form id="login-form" class="text-left">
-        <div class="login-form-main-message"></div>
-        <div class="main-login-form">
-          <div class="login-group">
-            <div class="form-group">
-              <%= f.label :login %><br />
-              <%= f.text_field :login, autofocus: true, class: "form-control" %>
-            </div>
-            <div class="form-group">
-              <%= f.label :password %><br />
-              <%= f.password_field :password, autocomplete: "off",class: "form-control" %>
-            </div>
-            <div class="form-group login-group-checkbox">
-              <input type="checkbox" id="lg_remember" name="lg_remember">
-              <label for="lg_remember">Lembrar</label>
-              </input>
-            </div>
+<div class="login-home cimg">
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="container col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6 col-lg-offset-4 col-lg-4 panel-center-login" >
+    <br />
+    <div class="panel panel-default">
+      <div class="panel-heading login-color">
+        <div class="text-center login-color-text"><h1>Login<h1></div>
+      </div>
+      <div class="panel-body">
+        <div class="form-group">
+          <div class="input-group">
+            <span class="input-group-addon">
+              <i class="ls-ico-user" style="width: auto"></i>
+            </span>
+            <%= f.text_field :login, autofocus: true, placeholder: "Usuário", class: "form-control" %>
           </div>
-          </p>
-          <%= f.submit "Log in", class: "btn btn-lg btn-primary" %>
-          <% end %>
         </div>
-      </form>
+        <div class="form-group">
+          <div class="input-group">
+            <span class="input-group-addon">
+              <i class="ls-ico-shaft-right" style="width: auto"></i>
+            </span>
+            <%= f.password_field :password, autocomplete: "off", placeholder: "Senha", class: "form-control" %>
+          </div>
+        </div>
+        <div align="center"> 
+          <%= f.submit "ENTRAR",class: "ls-btn-dark ls-btn-block"%>
+        <% end %>
+        </div>
+      </div>
     </div>
   </div>
-</div>
+  
 </div>
 
 

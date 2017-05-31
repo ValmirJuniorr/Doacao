@@ -370,12 +370,68 @@ label:hover:before {
   background-size: cover; 
 }
 
+.bimg {
+   background-color: #e2e2e2;
+   background-attachment: fixed;
+}
+
 .logo2 {
   text-align: center;
   padding: 15px 0;
   font-size: 25px;
   color: gray;
 }
+
+.login-home {
+  height: 590px;
+}
+
+.login-color-text {
+  color: #7a7674;
+}
+
+@font-face {
+  font-family: "Tfont";
+  src: url(/assets/Clearface T.ttf) format("truetype");
+}
+
+.panel-cc > .panel-heading {
+  color: #eac0ab;
+  background-color: #eac0ab
+  border-color: #eac0ab;
+}
+.panel-center-login {
+  margin: 13rem;
+}
+
+
+.form-login {
+    background-color: #EDEDED;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 15px;
+    border-color:#d2d2d2;
+    border-width: 5px;
+    box-shadow:0 1px 0 #cfcfcf;
+}
+
+h4 { 
+ border:0 solid #fff; 
+ border-bottom-width:1px;
+ padding-bottom:10px;
+ text-align: center;
+}
+
+.form-control {
+    border-radius: 10px;
+}
+
+.wrapper {
+    text-align: center;
+}
+
 
 .footer {
   clear: both;
