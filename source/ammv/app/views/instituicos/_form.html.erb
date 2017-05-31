@@ -1,0 +1,37 @@
+<%= form_for(instituico) do |f| %>
+  <% if instituico.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(instituico.errors.count, "error") %> prohibited this instituico from being saved:</h2>
+
+      <ul>
+      <% instituico.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nome_instituicao %>
+    <%= f.text_field :nome_instituicao %>
+  </div>
+
+  <div class="field">
+    <%= f.label :id_cliente_parceira %>
+    <%= f.number_field :id_cliente_parceira %>
+  </div>
+
+  <div class="field">
+    <%= f.label :codigo_produto %>
+    <%= f.number_field :codigo_produto %>
+  </div>
+
+  <div class="field">
+    <%= f.label :codigo_empresa_parceira %>
+    <%= f.number_field :codigo_empresa_parceira %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :instituicos
   get 'cont_users/index'
   get 'cont_users/new'
   get 'cont_users/edit'
