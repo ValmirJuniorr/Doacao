@@ -1083,7 +1083,7 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 body {
-  font-family: 'Open Sans',sans-serif;
+  font-family: 'Tfont','Open Sans', Arial, Helvetica, sans-serif;
   font-size: 13px;
   line-height: 1.42857143;
   color: #333;

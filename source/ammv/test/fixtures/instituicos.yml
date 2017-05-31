@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nome_instituicao: MyString
+  id_cliente_parceira: 1
+  codigo_produto: 1
+  codigo_empresa_parceira: 1
+
+two:
+  nome_instituicao: MyString
+  id_cliente_parceira: 1
+  codigo_produto: 1
+  codigo_empresa_parceira: 1

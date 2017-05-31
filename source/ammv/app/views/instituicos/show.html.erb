@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nome instituicao:</strong>
+  <%= @instituico.nome_instituicao %>
+</p>
+
+<p>
+  <strong>Id cliente parceira:</strong>
+  <%= @instituico.id_cliente_parceira %>
+</p>
+
+<p>
+  <strong>Codigo produto:</strong>
+  <%= @instituico.codigo_produto %>
+</p>
+
+<p>
+  <strong>Codigo empresa parceira:</strong>
+  <%= @instituico.codigo_empresa_parceira %>
+</p>
+
+<%= link_to 'Edit', edit_instituico_path(@instituico) %> |
+<%= link_to 'Back', instituicos_path %>

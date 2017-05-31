@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170530204018) do
+ActiveRecord::Schema.define(version: 20170531180904) do
 
   create_table "admin_users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -30,15 +30,15 @@ ActiveRecord::Schema.define(version: 20170530204018) do
   end
 
   create_table "cadastros", force: :cascade do |t|
-    t.string   "id_cliente_coelce"
-    t.string   "digito_verificador_cliente_coelce"
-    t.string   "codigo_ocorrencia"
+    t.integer  "id_cliente_coelce"
+    t.integer  "digito_verificador_cliente_coelce"
+    t.integer  "codigo_ocorrencia"
     t.date     "data_ocorrencia"
     t.float    "valor"
-    t.string   "parcelas"
-    t.string   "id_cliente_parceira"
-    t.string   "codigo_produto"
-    t.string   "codigo_empresa_parceira"
+    t.integer  "parcelas"
+    t.integer  "id_cliente_parceira"
+    t.integer  "codigo_produto"
+    t.integer  "codigo_empresa_parceira"
     t.text     "livre"
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false
@@ -62,6 +62,15 @@ ActiveRecord::Schema.define(version: 20170530204018) do
     t.datetime "updated_at",                        null: false
     t.integer  "cadastro_id"
     t.index ["relatorio_id"], name: "index_cadastros_relatorios_on_relatorio_id"
+  end
+
+  create_table "instituicos", force: :cascade do |t|
+    t.string   "nome_instituicao"
+    t.integer  "id_cliente_parceira"
+    t.integer  "codigo_produto"
+    t.integer  "codigo_empresa_parceira"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   create_table "relatorios", force: :cascade do |t|

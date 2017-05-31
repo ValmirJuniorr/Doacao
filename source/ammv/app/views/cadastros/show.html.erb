@@ -59,11 +59,11 @@
     </div>
     <br>
     <td>
-      <%= link_to 'Editar', edit_cadastro_path(@cadastro), class: 'ls-btn ls-ico-cog ls-btn-xs' %> 
+       
       <% if policy(@cadastro).index? %>
       <%= link_to 'Excluir', cadastro_path(@cadastro), class: 'btn btn-xs btn-danger', method: :delete, data: { confirm: 'Tem certeza que deseja excluir o registro?' } %>
     </td>
   </div>
-  <% end %>
-
 </div>
+
+<% end %>

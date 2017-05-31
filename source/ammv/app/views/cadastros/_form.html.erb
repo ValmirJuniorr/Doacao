@@ -29,7 +29,7 @@
   <div class="ls-form row container-fluid">
     <div class="page-header">
       <h2 align="center">Doador</h2>
-  </div>
+    </div>
     <br>
     <fieldset>
       <div class="cadastro">
@@ -37,7 +37,7 @@
           <label class="ls-label col-md-12">
             <b class="ls-label-text">ID</b>
             <p class="ls-label-info">Digite o ID do cliente coelce</p>
-            <%= f.number_field :id_cliente_coelce, required: true%>
+            <%= f.number_field :id_cliente_coelce, :max => 999%>
           </label>
           <label class="ls-label col-md-12">
             <b class="ls-label-text">Digito Verificador</b>
