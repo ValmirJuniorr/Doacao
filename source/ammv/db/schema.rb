@@ -10,21 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170531180904) do
-
-  create_table "active_admin_comments", force: :cascade do |t|
-    t.string   "namespace"
-    t.text     "body"
-    t.string   "resource_type"
-    t.integer  "resource_id"
-    t.string   "author_type"
-    t.integer  "author_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-    t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
-    t.index ["namespace"], name: "index_active_admin_comments_on_namespace"
-    t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
-  end
+ActiveRecord::Schema.define(version: 20170613181712) do
 
   create_table "admin_users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -44,15 +30,12 @@ ActiveRecord::Schema.define(version: 20170531180904) do
   end
 
   create_table "cadastros", force: :cascade do |t|
-    t.string   "id_cliente_coelce"
-    t.string   "digito_verificador_cliente_coelce"
-    t.string   "codigo_ocorrencia"
+    t.integer  "id_cliente_coelce"
+    t.integer  "digito_verificador_cliente_coelce"
+    t.integer  "codigo_ocorrencia"
     t.date     "data_ocorrencia"
     t.float    "valor"
-    t.string   "parcelas"
-    t.string   "id_cliente_parceira"
-    t.string   "codigo_produto"
-    t.string   "codigo_empresa_parceira"
+    t.integer  "parcelas"
     t.text     "livre"
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false
@@ -67,9 +50,6 @@ ActiveRecord::Schema.define(version: 20170531180904) do
     t.date     "data_ocorrencia"
     t.float    "valor"
     t.integer  "parcelas"
-    t.integer  "id_cliente_parceira"
-    t.integer  "codigo_produto"
-    t.integer  "codigo_empresa_parceira"
     t.text     "livre"
     t.integer  "relatorio_id"
     t.datetime "created_at",                        null: false
