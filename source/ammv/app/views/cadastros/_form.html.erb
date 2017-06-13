@@ -37,17 +37,17 @@
           <label class="ls-label col-md-12">
             <b class="ls-label-text">ID</b>
             <p class="ls-label-info">Digite o ID do cliente coelce</p>
-            <%= f.number_field :id_cliente_coelce, :max => 999%>
+            <%= f.number_field :id_cliente_coelce, required: true%>
           </label>
           <label class="ls-label col-md-12">
             <b class="ls-label-text">Digito Verificador</b>
             <p class="ls-label-info">Digite o dígito verificador do Cliente Coelce</p>
-            <%= f.number_field :digito_verificador_cliente_coelce, required: true%>
+            <%= f.number_field :digito_verificador_cliente_coelce, :max => 9, required: true%>
           </label>
           <label class="ls-label col-md-12">
             <b class="ls-label-text">Código Ocorrência</b>
             <p class="ls-label-info">Digite o código de ocorrência</p>
-            <%= f.number_field :codigo_ocorrencia, required: true %>
+            <%= f.number_field :codigo_ocorrencia, :max => 99,required: true %>
           </label>
           <label class="ls-label col-md-12">
             <b class="ls-label-text">Data Ocorrência</b>
@@ -66,21 +66,6 @@
             <%= f.number_field :parcelas, required: true%>
           </label>
           <label class="ls-label col-md-12">
-            <b class="ls-label-text">Id Cliente Parceiro</b>
-            <p class="ls-label-info">Dígite o Id do Cliente Parceiro</p>
-            <%= f.number_field :id_cliente_parceira, required: true%>
-          </label>
-          <label class="ls-label col-md-12">
-            <b class="ls-label-text">Código Produto</b>
-            <p class="ls-label-info">Insira o Código Produto</p>
-            <%= f.number_field :codigo_produto, required: true%>
-          </label>
-          <label class="ls-label col-md-12">
-            <b class="ls-label-text">Código Empresa Parceira</b>
-            <p class="ls-label-info">Dígite o código da empresa parceira</p>
-            <%= f.number_field :codigo_empresa_parceira, required: true%>
-          </label>
-          <label class="ls-label col-md-12">
             <b class="ls-label-text">Livre</b>
             <p class="ls-label-info">Campo Livre</p>
             <%= f.text_area:livre%>
@@ -94,6 +79,5 @@
       </form>   
     </div>
   </div>
-
 
   <% end %>

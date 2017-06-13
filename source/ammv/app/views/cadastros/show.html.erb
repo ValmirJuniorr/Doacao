@@ -46,20 +46,10 @@
       <div class="panel-body">Parcelas:  <b> <%= @cadastro.parcelas %> </b> </div>
     </div>
     <div class="panel panel-primary class">
-      <div class="panel-body">Id Cliente Parceira:  <b> <%= @cadastro.id_cliente_parceira %> </b> </div>
-    </div>
-    <div class="panel panel-primary class">
-      <div class="panel-body">Código Produto:  <b> <%= @cadastro.codigo_produto %> </b> </div>
-    </div>
-    <div class="panel panel-primary class">
-      <div class="panel-body">Código Empresa Parceira: <b> <%= @cadastro.codigo_empresa_parceira %></b> </div>
-    </div>
-    <div class="panel panel-primary class">
       <div class="panel-body">Livre: <i> <%= @cadastro.livre %> </i> </div>
     </div>
     <br>
     <td>
-       
       <% if policy(@cadastro).index? %>
       <%= link_to 'Excluir', cadastro_path(@cadastro), class: 'btn btn-xs btn-danger', method: :delete, data: { confirm: 'Tem certeza que deseja excluir o registro?' } %>
     </td>

@@ -1,5 +1,7 @@
 /* CSS DO SEARCH */
 
+$cor_principal = #eac0ab;
+
 .search-form .form-group {
   float: right !important;
   transition: all 0.35s, border-radius 0s;
@@ -394,20 +396,14 @@ label:hover:before {
   color: #7a7674;
 }
 
-@font-face {
-  font-family: "Tfont";
-  src: url(/assets/Clearface T.ttf) format("truetype");
-}
-
 .panel-cc > .panel-heading {
-  color: #eac0ab;
-  background-color: #eac0ab
-  border-color: #eac0ab;
+  color: $cor_principal;
+  background-color: $cor_principal;
+  border-color: $cor_principal;
 }
 .panel-center-login {
   margin: 10rem;
 }
-
 
 .form-login {
     background-color: #EDEDED;
@@ -416,7 +412,7 @@ label:hover:before {
     padding-left: 20px;
     padding-right: 20px;
     border-radius: 15px;
-    border-color:#d2d2d2;
+    border-color: #d2d2d2;
     border-width: 5px;
     box-shadow:0 1px 0 #cfcfcf;
 }
