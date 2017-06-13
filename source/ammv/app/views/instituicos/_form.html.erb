@@ -49,12 +49,12 @@
           <label class="ls-label col-md-12">
             <b class="ls-label-text">Código Produto </b>
             <p class="ls-label-info">Insira o Código Produto</p>
-            <%= f.number_field :codigo_produto, {in: -1...100, required: true}%>
+            <%= f.number_field :codigo_produto, {in: -1...10000, required: true}%>
           </label>
           <label class="ls-label col-md-12">
             <b class="ls-label-text">Código Empresa Parceira</b>
             <p class="ls-label-info">Dígite o código da empresa parceira</p>
-            <%= f.number_field :codigo_empresa_parceira, {in: -1...10, required: true}%>
+            <%= f.number_field :codigo_empresa_parceira, {in: -1...100, required: true}%>
           </label>
           <br>
           <div class="footer" align="center">
