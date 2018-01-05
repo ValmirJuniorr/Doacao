@@ -4,7 +4,6 @@ class CreateRelatorios < ActiveRecord::Migration[5.0]
       t.date :data_geracao
       t.date :data_inicio
       t.date :data_final
-
       t.timestamps
     end
   end

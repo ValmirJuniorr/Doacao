@@ -10,10 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170613180355) do
-
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+ActiveRecord::Schema.define(version: 20180105030439) do
 
   create_table "admin_users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -28,8 +25,8 @@ ActiveRecord::Schema.define(version: 20170613180355) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.index ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
-    t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
+    t.index ["email"], name: "index_admin_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
   create_table "cadastros", force: :cascade do |t|
@@ -43,22 +40,7 @@ ActiveRecord::Schema.define(version: 20170613180355) do
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false
     t.integer  "user_id"
-    t.index ["user_id"], name: "index_cadastros_on_user_id", using: :btree
-  end
-
-  create_table "cadastros_relatorios", force: :cascade do |t|
-    t.integer  "id_cliente_coelce"
-    t.integer  "digito_verificador_cliente_coelce"
-    t.integer  "codigo_ocorrencia"
-    t.date     "data_ocorrencia"
-    t.float    "valor"
-    t.integer  "parcelas"
-    t.text     "livre"
-    t.integer  "relatorio_id"
-    t.datetime "created_at",                        null: false
-    t.datetime "updated_at",                        null: false
-    t.integer  "cadastro_id"
-    t.index ["relatorio_id"], name: "index_cadastros_relatorios_on_relatorio_id", using: :btree
+    t.index ["user_id"], name: "index_cadastros_on_user_id"
   end
 
   create_table "instituicos", force: :cascade do |t|
@@ -73,14 +55,9 @@ ActiveRecord::Schema.define(version: 20170613180355) do
   create_table "relatorios", force: :cascade do |t|
     t.date     "data_inicio"
     t.date     "data_final"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.string   "file_name"
-    t.float    "valor_total"
-    t.integer  "registro_total"
-    t.string   "registroA"
-    t.text     "registroD"
-    t.string   "registroZ"
   end
 
   create_table "users", force: :cascade do |t|
@@ -98,10 +75,9 @@ ActiveRecord::Schema.define(version: 20170613180355) do
     t.datetime "updated_at",                          null: false
     t.string   "username"
     t.integer  "role",                   default: 0
-    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-    t.index ["username"], name: "index_users_on_username", unique: true, using: :btree
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["username"], name: "index_users_on_username", unique: true
   end
 
-  add_foreign_key "cadastros_relatorios", "relatorios"
 end
